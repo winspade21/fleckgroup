@@ -27,201 +27,6 @@ ul {
   li { list-style: none; }
 }
 
-// =========================
-// HEADER / NAVBAR
-// =========================
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
-
-  .navbar-custom {
-    background: linear-gradient(
-      to right,
-      white 0%,
-      #000000 50%,
-      #660000 75%
-    );
-    padding: 0.8rem 0;
-    transition: all 0.35s ease;
-    display: flex;
-    align-items: center;
-
-    .logo {
-      img {
-        height: 150px;
-        transition: all 0.35s ease;
-      }
-    }
-
-    .nav-link,
-    .dropdown-toggle {
-      color: $white !important;
-      font-weight: 500;
-      text-transform: uppercase;
-      padding: 0.5rem 1.2rem;
-      transition: all 0.25s ease;
-      text-decoration: none !important;
-
-      &:hover {
-        color: $primary-red !important;
-        transform: translateY(-3px);
-      }
-    }
-
-    .nav-cta-button {
-      display: flex;
-      align-items: center;
-
-      .nav-quote-btn {
-        background: $primary-red;
-        color: $white;
-        padding: 10px 22px;
-        font-weight: 600;
-        border: none;
-        border-radius: 6px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-
-        &:hover,
-        &:focus,
-        &:active {
-          background: $primary-red;
-          transform: translateY(-3px);
-          text-decoration: none !important;
-          color: $white;
-        }
-      }
-    }
-
-    // DROPDOWN
-    .dropdown-menu {
-      background: rgba(0, 0, 0, 0.95);
-      border: none;
-
-      .dropdown-item {
-        color: $white;
-        text-transform: uppercase;
-        text-decoration: none !important;
-
-        &:hover {
-          background: transparent;
-          color: $primary-red;
-        }
-      }
-    }
-  }
-
-  // =========================
-  // SCROLLED STATE
-  // =========================
-  .navbar-custom.scrolled {
-    padding: 0.4rem 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-
-    .logo img {
-      height: 75px;
-    }
-  }
-}
-
-// =========================
-// HAMBURGER ICON
-// =========================
-.navbar-toggler {
-  border: none;
-  background: transparent;
-
-  &:focus {
-    box-shadow: none;
-  }
-}
-
-.navbar-toggler-icon {
-  background-image: none;
-  width: 30px;
-  height: 22px;
-  position: relative;
-  display: inline-block;
-
-  span,
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    transition: all 0.3s ease;
-    left: 0;
-  }
-
-  span {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &::after {
-    bottom: 0;
-  }
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  span {
-    opacity: 0;
-  }
-
-  &::before {
-    top: 50%;
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    bottom: 50%;
-    transform: rotate(-45deg);
-  }
-}
-
-// =========================
-// MOBILE MENU
-// =========================
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: #000;
-    padding: 25px;
-    text-align: center;
-  }
-
-  .nav-link {
-    font-size: 1.1rem;
-    padding: 12px 0;
-  }
-
-  .nav-cta-button {
-    justify-content: center;
-    margin-top: 15px;
-    width: 100%;
-
-    .nav-quote-btn {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-
-  header .navbar-custom .logo img {
-    height: 90px;
-  }
-}
-
-
 
 // =================
 // HERO SECTION
@@ -351,21 +156,6 @@ header {
       0 100%
     );
     z-index: 2;
-  }
-
-  .line-1, .line-2 {
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    background: red;
-    z-index: 3;
-    opacity: 0;
-    animation: fadeInUp 1s forwards 1.5s;
-  }
-
-  .line-2 {
-    bottom: 6px;
-    animation-delay: 1.7s;
   }
 
   // Animations
@@ -558,7 +348,7 @@ header {
 
   .service-text {
     width: 50%;
-    background: $gray-light;
+    background: linear-gradient(45deg, white, $gray-medium);
     color: #111;
     padding: 80px;
     display: flex;
@@ -1128,7 +918,7 @@ header {
       .swiper-slide {
         display: flex;
         justify-content: center;
-        height: auto; // important
+        height: auto;
       }
 
       .testimonial-card {
@@ -1193,6 +983,105 @@ header {
         background: #ff4d4f;
       }
     }
+
+    .open-modal-btn {
+      padding: 0.9rem 2.4rem;
+      background: #ff4d4f;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+      margin-top: 2rem;
+
+      &:hover {
+        background: rgba(255, 77, 79, 0.9);
+      }
+    }
+
+    .testimonial-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      backdrop-filter: blur(2px);
+      overflow-y: auto;
+    }
+
+    .testimonial-modal {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #ff4d4f;
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rgba(255, 77, 79, 0.9);
+        }
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 0.95rem;
+        color: #333;
+
+        &:focus {
+          outline: none;
+          border-color: #ff4d4f;
+          box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.15);
+        }
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      button[type="submit"] {
+        margin-top: 0.5rem;
+        padding: 0.9rem 2.4rem;
+        background: #ff4d4f;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          background: rgba(255, 77, 79, 0.9);
+          transform: translateY(-2px);
+        }
+      }
+    }
   }
 }
 
@@ -1203,8 +1092,13 @@ header {
     .testimonial-card {
       padding: 1.5rem;
     }
+
+    .testimonial-modal {
+      padding: 1.8rem;
+    }
   }
 }
+
 
 // ==================
 // SITE FOOTER
@@ -1639,3 +1533,236 @@ header {
 
 
 
+/* Accent Line (HIGH-END DETAIL) */
+
+// .navbar-custom::after{
+//   content:"";
+//   position:absolute;
+//   bottom:-2px;
+//   left:0;
+//   width:100%;
+//   height:3px;
+//   background:#333;
+// }
+
+/* =============================
+   MOBILE
+============================= */
+
+@media (max-width: 991px){
+
+  .navbar-custom {
+    top:0;
+    background:#fff;
+  }
+
+  .navbar-collapse{
+    background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.88) 45%,
+    rgba(120,0,0,.92) 100%
+  );
+    padding:25px;
+    margin-top:15px;
+    border-radius:10px;
+  }
+
+  .logo img{
+    height:60px;
+  }
+
+}
+
+// =========================
+// HEADER / NAVBAR
+// =========================
+// header {
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   z-index: 9999;
+
+//   .navbar-custom {
+//     background: linear-gradient(
+//       to right,
+//       white 0%,
+//       #000000 50%,
+//       #660000 75%
+//     );
+//     padding: 0.8rem 0;
+//     transition: all 0.35s ease;
+//     display: flex;
+//     align-items: center;
+
+//     .logo {
+//       img {
+//         height: 150px;
+//         transition: all 0.35s ease;
+//       }
+//     }
+
+//     .nav-link,
+//     .dropdown-toggle {
+//       color: $white !important;
+//       font-weight: 500;
+//       text-transform: uppercase;
+//       padding: 0.5rem 1.2rem;
+//       transition: all 0.25s ease;
+//       text-decoration: none !important;
+
+//       &:hover {
+//         color: $primary-red !important;
+//         transform: translateY(-3px);
+//       }
+//     }
+
+//     .nav-cta-button {
+//       display: flex;
+//       align-items: center;
+
+//       .nav-quote-btn {
+//         background: $primary-red;
+//         color: $white;
+//         padding: 10px 22px;
+//         font-weight: 600;
+//         border: none;
+//         border-radius: 6px;
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 8px;
+//         transition: all 0.3s ease;
+//         text-decoration: none !important;
+
+//         &:hover,
+//         &:focus,
+//         &:active {
+//           background: $primary-red;
+//           transform: translateY(-3px);
+//           text-decoration: none !important;
+//           color: $white;
+//         }
+//       }
+//     }
+
+//     // DROPDOWN
+//     .dropdown-menu {
+//       background: rgba(0, 0, 0, 0.95);
+//       border: none;
+
+//       .dropdown-item {
+//         color: $white;
+//         text-transform: uppercase;
+//         text-decoration: none !important;
+
+//         &:hover {
+//           background: transparent;
+//           color: $primary-red;
+//         }
+//       }
+//     }
+//   }
+
+//   // =========================
+//   // SCROLLED STATE
+//   // =========================
+//   .navbar-custom.scrolled {
+//     padding: 0.4rem 0;
+//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+//     .logo img {
+//       height: 75px;
+//     }
+//   }
+// }
+
+// // =========================
+// // HAMBURGER ICON
+// // =========================
+// .navbar-toggler {
+//   border: none;
+//   background: transparent;
+
+//   &:focus {
+//     box-shadow: none;
+//   }
+// }
+
+// .navbar-toggler-icon {
+//   background-image: none;
+//   width: 30px;
+//   height: 22px;
+//   position: relative;
+//   display: inline-block;
+
+//   span,
+//   &::before,
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     width: 100%;
+//     height: 3px;
+//     background: #fff;
+//     transition: all 0.3s ease;
+//     left: 0;
+//   }
+
+//   span {
+//     top: 50%;
+//     transform: translateY(-50%);
+//   }
+
+//   &::before {
+//     top: 0;
+//   }
+
+//   &::after {
+//     bottom: 0;
+//   }
+// }
+
+// .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+//   span {
+//     opacity: 0;
+//   }
+
+//   &::before {
+//     top: 50%;
+//     transform: rotate(45deg);
+//   }
+
+//   &::after {
+//     bottom: 50%;
+//     transform: rotate(-45deg);
+//   }
+// }
+
+// // =========================
+// // MOBILE MENU
+// // =========================
+// @media (max-width: 991px) {
+//   .navbar-collapse {
+//     background: #000;
+//     padding: 25px;
+//     text-align: center;
+//   }
+
+//   .nav-link {
+//     font-size: 1.1rem;
+//     padding: 12px 0;
+//   }
+
+//   .nav-cta-button {
+//     justify-content: center;
+//     margin-top: 15px;
+//     width: 100%;
+
+//     .nav-quote-btn {
+//       width: 100%;
+//       justify-content: center;
+//     }
+//   }
+
+//   header .navbar-custom .logo img {
+//     height: 90px;
+//   }
+// }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Testimonial from "../common/Testimonials.jsx";
-
+import "../../assets/css/style.scss";
 
 import slide1 from "../../assets/images/slide1.jpg";
 import slide2 from "../../assets/images/slide2.jpeg";
-import slide3 from "../../assets/images/slide2.jpg";
+import slide3 from "../../assets/images/earthmoving.jpg";
 import abtVideo from "../../assets/images/about.mp4"; 
 import earthmovingImg from "../../assets/images/earthmoving.jpg"
 import civilImg from "../../assets/images/civil.jpeg"
@@ -97,8 +97,8 @@ const Home = () => {
         <div className="hero d-flex align-items-center">
           <div className="hero-left">
             <div className="hero-content">
-              <h1>Sydney's Earthmoving & Plant Hire Experts Since 1988</h1>
-              <p>Reliable solutions for projects big and small – no job too tough</p>
+              <h1>Sydney’s Trusted Earthmoving & Plant Hire Specialists</h1>
+              <p>Supporting civil & construction projects since 1988</p>
               <div className="mt-3">
                 <Link to="/contact" className="hero-btn btn text-decoration-none me-3">
                   Get A Free Quote
@@ -110,8 +110,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="line-1"></div>
-        <div className="line-2"></div>
       </section>
 
    {/* ABOUT US */}
@@ -143,15 +141,11 @@ const Home = () => {
         </h2>
 
         <p>
-          In 1988, Jamey Flecknoe founded Fleck Earthmoving with just a bobcat,
-          a tipper, and a whole lot of passion. His “can-do” attitude and love
-          for the industry fueled our growth.
+          From humble beginnings to a trusted name in the civil & construction industry, Fleck Group has grown through reliability, grit, and genuine passion for every project we take on.
         </p>
 
         <p>
-          Today, the Fleck Group has over 80 dedicated professionals, still
-          proudly family-owned, bringing that same passion to earthmoving
-          projects across Sydney and its surrounds.
+          Today, our team delivers modern plant, skilled operators, and dependable service across Sydney and surrounding regions, combining big capability with small-business commitment.
         </p>
 
         <div className="d-flex align-items-center gap-3 mt-4">
@@ -170,6 +164,63 @@ const Home = () => {
     </div>
   </div>
   </section>
+
+
+{/* Why Choose Us */}
+<section className="about-overview">
+  <div className="container">
+    <div className="about-grid">
+
+      {/* LEFT */}
+      <div className="about-text fade-in-up delay-1">
+        <h2>Built on Experience & Reliability</h2>
+        <p>
+          Fleck Earthmoving has been delivering high-quality civil, demolition,
+          and earthmoving solutions across Sydney since 1988. Our team combines
+          industry experience with modern machinery to complete projects safely,
+          efficiently, and on time.
+        </p>
+
+        <ul className="about-points">
+          <li><FaCheckCircle className="icon" /> Over 35 Years Industry Experience</li>
+          <li><FaCheckCircle className="icon" /> Fully Licensed & Insured</li>
+          <li><FaCheckCircle className="icon" /> Modern Fleet & Skilled Operators</li>
+          <li><FaCheckCircle className="icon" /> Projects Delivered On Time</li>
+        </ul>
+
+        <Link to="/about" className="btn-learn">Learn More</Link>
+
+        <div className="social-icon">
+          <a href="#"><FaFacebookF /></a>
+          <a href="#"><FaLinkedinIn /></a>
+          <a href="#"><FaInstagram /></a>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div className="about-stats fade-in-up delay-2">
+        <div className="stat-card">
+          <FaAward className="stat-icon" />
+          <h3>30+</h3>
+          <span>Years Experience</span>
+        </div>
+
+        <div className="stat-card">
+          <FaTools className="stat-icon" />
+          <h3>50+</h3>
+          <span>Machines & Assets</span>
+        </div>
+
+        <div className="stat-card">
+          <FaShieldAlt className="stat-icon" />
+          <h3>100%</h3>
+          <span>Safety Focused</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 {/* SERVICE SECTION */}
      <section className="services-section">
@@ -268,61 +319,6 @@ const Home = () => {
       </div>
     </section>
 
-{/* Why Choose Us */}
-<section className="about-overview">
-  <div className="container">
-    <div className="about-grid">
-
-      {/* LEFT */}
-      <div className="about-text fade-in-up delay-1">
-        <h2>Built on Experience & Reliability</h2>
-        <p>
-          Fleck Earthmoving has been delivering high-quality civil, demolition,
-          and earthmoving solutions across Sydney since 1988. Our team combines
-          industry experience with modern machinery to complete projects safely,
-          efficiently, and on time.
-        </p>
-
-        <ul className="about-points">
-          <li><FaCheckCircle className="icon" /> Over 35 Years Industry Experience</li>
-          <li><FaCheckCircle className="icon" /> Fully Licensed & Insured</li>
-          <li><FaCheckCircle className="icon" /> Modern Fleet & Skilled Operators</li>
-          <li><FaCheckCircle className="icon" /> Projects Delivered On Time</li>
-        </ul>
-
-        <a href="#" className="btn-learn">Learn More</a>
-
-        <div className="social-icon">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaLinkedinIn /></a>
-          <a href="#"><FaInstagram /></a>
-        </div>
-      </div>
-
-      {/* RIGHT */}
-      <div className="about-stats fade-in-up delay-2">
-        <div className="stat-card">
-          <FaAward className="stat-icon" />
-          <h3>30+</h3>
-          <span>Years Experience</span>
-        </div>
-
-        <div className="stat-card">
-          <FaTools className="stat-icon" />
-          <h3>50+</h3>
-          <span>Machines & Assets</span>
-        </div>
-
-        <div className="stat-card">
-          <FaShieldAlt className="stat-icon" />
-          <h3>100%</h3>
-          <span>Safety Focused</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 {/* TESTIMONIALS SECTION */}
  <Testimonial/>
 

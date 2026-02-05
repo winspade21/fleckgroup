@@ -66,7 +66,7 @@ const Footer = () => {
             <span className="footer-accent"></span>
             <ul>
               <li><FaMapMarkerAlt /> 8/18 Precision Place Mulgrave NSW 2756</li>
-              <li><FaPhone /> <a href="tel:+614191111133">(+61) 0419 111 133</a></li>
+              <li><FaPhone /> <a href="tel:04191111133">0419 111 133</a></li>
               <li><FaEnvelope /> <a href="mailto:admin@fleckgroup.com.au">admin@fleckgroup.com.au</a></li>
             </ul>
           </Col>
