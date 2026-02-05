@@ -103,7 +103,7 @@ const Home = () => {
                 <Link to="/contact" className="hero-btn btn text-decoration-none me-3">
                   Get A Free Quote
                 </Link>
-                <Link to="/projects" className="hero-btn1 btn text-decoration-none">
+                <Link to="/services" className="hero-btn1 btn text-decoration-none">
                   Our Services
                 </Link>
               </div>
