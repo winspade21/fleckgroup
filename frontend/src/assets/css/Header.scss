@@ -564,28 +564,32 @@ TABLET
 /* ====================================
 MOBILE
 ==================================== */
-
 @media (max-width: 991px) {
 
-  /* hide top bar */
-
   .top-bar {
-    display: none;
+    display: flex;           // keep bar visible
+    justify-content: space-between;
+    padding: 6px 16px;
   }
 
-  .navbar-custom {
-    top: 0;
-    background: #fff;
+  .top-left {
+    display: none;           // optional: hide phone/email
   }
 
-  .navbar-custom .container {
-    padding-left: 20px;
-    padding-right: 20px;
+  .top-brands {
+    display: none;           // hide logos on small
   }
 
-  .logo img {
-    height: 70px;
+  .office-hours {
+    display: none;           // 🔥 hide office hours
   }
+
+  .top-right {
+    width: 100%;
+    justify-content: center; // center socials
+  }
+
+  
 
   /* MOBILE MENU */
 
@@ -625,6 +629,36 @@ MOBILE
     justify-content: center;
   }
 
+}
+
+
+
+@media (max-width: 991px) {
+
+  .top-bar {
+    display: none;           // keep bar visible
+  }
+
+  .top-left {
+    display: none;           // optional: hide phone/email
+  }
+
+  .top-brands {
+    display: none;           // hide logos on small
+  }
+
+  .office-hours {
+    display: none;           // 🔥 hide office hours
+  }
+
+  .social-icons{
+    display: none;
+  }
+
+  .top-right {
+    width: 100%;
+    justify-content: center; // center socials
+  }
 }
 
 

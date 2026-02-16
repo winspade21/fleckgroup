@@ -332,24 +332,27 @@ const Home = () => {
 
 
 {/* CTA SECTION */}
- <section class="cta-section">
-      <div class="cta-content">
-          <h2>Ready to Start Your Project?</h2>
-          <p>
-            From civil works to large-scale earthmoving, Fleck Eathmoving & Plant Hire delivers reliable result across NSW & SYDNEY.
-          </p>
+<section className="fleck-cta-unique">
+  <div className="fleck-cta-unique__content">
+    
+    <h2>Ready to Start Your Project?</h2>
 
-          <div class="cta-buttons">
-            <a href="tel: +(61) 0419 111 133" class="cta-btn primary">
-              <i class="fa fa-phone"></i> Call Us Today
-            </a>
+    <p>
+      From civil works to large-scale earthmoving, <strong>Fleck Earthmoving & Plant Hire</strong> delivers reliable results across NSW & Sydney.
+    </p>
 
-            <a href="#contact" class="cta-btn secondary"> 
-              Get A Quote
-            </a>
-          </div>
-      </div>
-     </section>
+    <div className="fleck-cta-unique__buttons">
+      <Link to="/contact" className="fleck-btn-primary">
+        Start a Conversation
+      </Link>
+
+      <Link to="/services" className="fleck-btn-secondary">
+        Explore Our Capabilities
+      </Link>
+    </div>
+
+  </div>
+</section>
 
      <section className="fleck-brands-inline py-4" data-aos="fade-up">
        <div className="container text-center">

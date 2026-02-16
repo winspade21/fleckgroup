@@ -1391,12 +1391,13 @@ ul {
 /* ========================= */
 /* CTA SECTION               */
 /* ========================= */
-.cta-section {
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 60%, #b1121b 100%);
-  padding: 100px 20px;
+.fleck-cta-unique {
   position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 60%, #b1121b 100%);
+  color: #fff;
   text-align: center;
+  padding: 120px 20px;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -1407,18 +1408,21 @@ ul {
     height: 260px;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 50%;
+    z-index: 1;
   }
 
-  .cta-content {
+  &__content {
+    position: relative;
+    z-index: 2;
     max-width: 900px;
-    margin: auto;
-    color: #fff;
+    margin: 0 auto;
 
     h2 {
-      font-size: 42px;
-      font-weight: 700;
-      line-height: 1.2;
+      font-size: 48px;
+      font-weight: 800;
       margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     p {
@@ -1427,62 +1431,93 @@ ul {
       max-width: 700px;
       margin: 0 auto 40px;
       line-height: 1.6;
+
+      strong {
+        color: #c62828;
+      }
     }
   }
 
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
+  &__buttons {
+    display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 16px 36px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    gap: 20px;
+    flex-wrap: wrap;
 
-    &.primary {
-      background: #b1121b;
-      color: #fff;
-
-      &:hover {
-        background: #fff;
-        color: #b1121b;
-        transform: translateY(-2px);
-      }
-    }
-
-    &.secondary {
-      border: 2px solid #fff;
-      color: #fff;
+    .fleck-btn-primary,
+    .fleck-btn-secondary {
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s ease;
 
       &:hover {
-        background: #fff;
-        color: #111;
-        transform: translateY(-2px);
+        transform: translateY(-3px);
       }
     }
 
-    /* Responsive: full width on mobile */
-    @media (max-width: 767px) {
-      width: 100%;
-      max-width: 250px;
-      margin: 0 auto 10px;
+    .fleck-btn-primary {
+      background: #b1121b;
+      color: #000;
+
+      &:hover {
+        background: #fff;
+        box-shadow: 0 10px 25px rgba(253, 19, 19, 0.842);
+      }
+    }
+
+    .fleck-btn-secondary {
+
+      color: #b71c1c;
+      background: #fff;
+
+      &:hover {
+        background: #b71c1c;
+        color: #000;
+        box-shadow: 0 10px 25px rgba(253, 19, 19, 0.842);
+      }
     }
   }
 
   @media (max-width: 768px) {
     padding: 80px 16px;
 
-    .cta-content {
-      h2 { font-size: 32px; }
-      p { font-size: 16px; margin-bottom: 32px; }
+    &__content {
+      h2 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+    }
+
+    &__buttons {
+      flex-direction: column;
+
+      .fleck-btn-primary,
+      .fleck-btn-secondary {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 10px;
+      }
     }
   }
 }
+
+
+
+
+// ============= FLECK BRANDING
+//  */*/*/*/*/*/* 4 LOGO BRANDS
+// ============================
 
 .fleck-brands-inline {
   background-color: #f9f9f9;
