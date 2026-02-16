@@ -132,9 +132,14 @@ const Header = () => {
               <Nav.Link as={Link} to="/about" onClick={handleSamePageScroll("/about")}>About Us</Nav.Link>
 
               <NavDropdown title="Services" id="services-dropdown">
-                <NavDropdown.Item as={Link} to="/services" onClick={handleSamePageScroll("/services")}>
-                  View All Services
-                </NavDropdown.Item>
+                <NavDropdown.Item
+                    as={Link}
+                    to="/services"
+                    className="view-all-services"
+                    onClick={handleSamePageScroll("/services")}
+                  >
+                    View All Services
+              </NavDropdown.Item>
 
                 <NavDropdown.Divider />
 

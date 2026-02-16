@@ -659,6 +659,66 @@ MOBILE
     width: 100%;
     justify-content: center; // center socials
   }
+
+    .navbar-custom {
+    top: 0;
+    background: #fff;
+  }
 }
 
 
+/* ================================
+CUSTOM HAMBURGER
+================================ */
+
+.navbar-toggler {
+  border: none;
+  padding: 6px;
+  background: transparent;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Create 3 lines manually */
+.navbar-toggler-icon {
+  width: 26px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background-color: #fff;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+
+.view-all-services {
+  background: #b1121b;
+  border-radius: 6px;
+  margin: 8px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.view-all-services:hover {
+  background: #870c13;
+}
