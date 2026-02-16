@@ -5,8 +5,14 @@ import aboutImg1 from '../../assets/images/haulage.jpg';
 import aboutImg2 from '../../assets/images/earthmoving.jpg';
 import faqImg from '../../assets/images/slide1.jpg';
 import FleckTabs from "../common/FleckTabs.jsx";
+import OurTeam from "../common/OurTeam.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import logo1 from '../../assets/images/logo5.png';
+import logo2 from '../../assets/images/logo4.png';
+import logo3 from '../../assets/images/logo3.png';
+import logo4 from '../../assets/images/logo2.png';
 
 const About = () => {
   useEffect(() => {
@@ -19,18 +25,18 @@ const About = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="inner-banner">
+      <div className="inner-banner1">
         <div className="inner-content" data-aos="fade-down">
-          <section className="w3l-breadcrumb py-sm-5">
+          <section className="w3l-breadcrumb1 py-sm-5">
             <div className="container">
-              <div className="w3breadcrumb-gids">
+              <div className="w3breadcrumb-gids1">
                 <div className="w3breadcrumb-left" data-aos="fade-right" data-aos-delay="100">
-                  <h2 className="inner-w3-title mt-sm-5 mt-4">
+                  <h2 className="inner-w3-title1 mt-sm-5 mt-4">
                     About Us
                   </h2>
                 </div>
-                <div className="w3breadcrumb-right" data-aos="fade-left" data-aos-delay="200">
-                  <ul className="breadcrumbs-custom-path">
+                <div className="w3breadcrumb-right1" data-aos="fade-left" data-aos-delay="200">
+                  <ul className="breadcrumbs-custom-path1">
                     <li>
                       <Link to="/">Home</Link>
                     </li>
@@ -187,35 +193,54 @@ const About = () => {
         </div>
       </section>
 
-      {/* Join / Subscribe Section */}
-      <section className="w3l-join-main py-5" data-aos="fade-up">
-        <div className="container py-md-5">
-          <div className="w3l-project-in">
-            <div className="row align-items-center">
-              <div className="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <div className="bottom-info">
-                  <div className="header-section pe-lg-5">
-                    <h5 className="title-subw3hny mb-2">Join With Us</h5>
-                    <h3 className="title-w3l two mb-2">Stay Updated!</h3>
-                    <p>We appreciate your trust greatly! Our clients choose us and our products because they know we’re the best.</p>
-                  </div>
-                </div>
-              </div>
+      <OurTeam/>
 
-              <div className="col-lg-6 w3l-subscribe-content mt-lg-0 mt-5" data-aos="fade-left" data-aos-delay="200">
-                <form className="subscribe-wthree">
-                  <div className="d-flex flex-wrap subscribe-wthree-field">
-                    <input className="form-control me-2" type="email" placeholder="Email" name="email" required data-aos="fade-up" data-aos-delay="300" />
-                    <button className="btn btn-style" type="submit" data-aos="fade-up" data-aos-delay="400">Subscribe</button>
-                  </div>
-                </form>
-              </div>
 
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* CTA SECTION -----=====
+    [] =================== */}
 
+<section className="fleck-cta">
+      <div className="fleck-cta__content">
+        
+        <h2>Building the Infrastructure That Powers Tomorrow</h2>
+
+        <p>
+          Fleck Group partners with developers, government, and industry leaders
+          to deliver complex civil and earthmoving projects with precision,
+          safety, and certainty.
+        </p>
+
+        <div className="fleck-cta__buttons">
+  <Link to="/contact" className="btn-primary">
+    Start a Conversation
+  </Link>
+
+  <Link to="/services" className="btn-secondary">
+    Explore Our Capabilities
+  </Link>
+</div>
+
+      </div>
+    </section>
+
+<section className="fleck-brands-inline py-4" data-aos="fade-up">
+  <div className="container text-center">
+    <div className="fleck-brands-inline__row">
+      <a href="/fleck-earthmoving">
+        <img src={logo1} alt="Fleck Earthmoving" />
+      </a>
+      <a href="/fleck-planthire">
+        <img src={logo2} alt="Fleck Plant Hire" />
+      </a>
+      <a href="/nextGen-earthworks">
+        <img src={logo3} alt="NextGen Earthworks" />
+      </a>
+      <a href="/nsw-plant-haulage">
+        <img src={logo4} alt="NSW Plant Haulage" />
+      </a>
+    </div>
+  </div>
+</section>
     </>
   );
 };

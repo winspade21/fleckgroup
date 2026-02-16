@@ -16,6 +16,11 @@ import plantHireImg from "../../assets/images/plantHire.jpg"
 
 import { FaCheckCircle, FaFacebookF, FaLinkedinIn, FaInstagram, FaAward, FaShieldAlt, FaTools } from "react-icons/fa";
 
+import logo1 from '../../assets/images/logo5.png';
+import logo2 from '../../assets/images/logo4.png';
+import logo3 from '../../assets/images/logo3.png';
+import logo4 from '../../assets/images/logo2.png';
+
 
 const images = [slide1, slide2, slide3];
 
@@ -103,7 +108,7 @@ const Home = () => {
                 <Link to="/contact" className="hero-btn btn text-decoration-none me-3">
                   Get A Free Quote
                 </Link>
-                <Link to="/services" className="hero-btn1 btn text-decoration-none">
+                <Link to="/projects" className="hero-btn1 btn text-decoration-none">
                   Our Services
                 </Link>
               </div>
@@ -155,9 +160,9 @@ const Home = () => {
 
           {/* Social Icons */}
          <div className="social-icons">
-            <a href="#"><i className="fab fa-facebook-f"></i></a>
-            <a href="#"><i className="fab fa-linkedin-in"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/fleckearthmoving" target="_blank" rel="noreferrer"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer"><i className="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/fleckearthmoving/" target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
@@ -165,62 +170,6 @@ const Home = () => {
   </div>
   </section>
 
-
-{/* Why Choose Us */}
-<section className="about-overview">
-  <div className="container">
-    <div className="about-grid">
-
-      {/* LEFT */}
-      <div className="about-text fade-in-up delay-1">
-        <h2>Built on Experience & Reliability</h2>
-        <p>
-          Fleck Earthmoving has been delivering high-quality civil, demolition,
-          and earthmoving solutions across Sydney since 1988. Our team combines
-          industry experience with modern machinery to complete projects safely,
-          efficiently, and on time.
-        </p>
-
-        <ul className="about-points">
-          <li><FaCheckCircle className="icon" /> Over 35 Years Industry Experience</li>
-          <li><FaCheckCircle className="icon" /> Fully Licensed & Insured</li>
-          <li><FaCheckCircle className="icon" /> Modern Fleet & Skilled Operators</li>
-          <li><FaCheckCircle className="icon" /> Projects Delivered On Time</li>
-        </ul>
-
-        <Link to="/about" className="btn-learn">Learn More</Link>
-
-        <div className="social-icon">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaLinkedinIn /></a>
-          <a href="#"><FaInstagram /></a>
-        </div>
-      </div>
-
-      {/* RIGHT */}
-      <div className="about-stats fade-in-up delay-2">
-        <div className="stat-card">
-          <FaAward className="stat-icon" />
-          <h3>30+</h3>
-          <span>Years Experience</span>
-        </div>
-
-        <div className="stat-card">
-          <FaTools className="stat-icon" />
-          <h3>50+</h3>
-          <span>Machines & Assets</span>
-        </div>
-
-        <div className="stat-card">
-          <FaShieldAlt className="stat-icon" />
-          <h3>100%</h3>
-          <span>Safety Focused</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 {/* SERVICE SECTION */}
      <section className="services-section">
@@ -319,6 +268,65 @@ const Home = () => {
       </div>
     </section>
 
+
+{/* Why Choose Us */}
+<section className="about-overview">
+  <div className="container">
+    <div className="about-grid">
+
+      {/* LEFT */}
+      <div className="about-text fade-in-up delay-1">
+        <h2>Built on Experience & Reliability</h2>
+        <p>
+          Fleck Group has been delivering high-quality civil, demolition,
+          and earthmoving solutions across Sydney since 1988. Our team combines
+          industry experience with modern machinery to complete projects safely,
+          efficiently, and on time.
+        </p>
+
+        <ul className="about-points">
+          <li><FaCheckCircle className="icon" /> Over 30 Years Industry Experience</li>
+          <li><FaCheckCircle className="icon" /> Fully Licensed & Insured</li>
+          <li><FaCheckCircle className="icon" /> Modern Fleet & Skilled Operators</li>
+          <li><FaCheckCircle className="icon" /> Projects Delivered On Time</li>
+        </ul>
+
+        <Link to="/about" className="btn-learn">Learn More</Link>
+
+        <div className="social-icon">
+          <a href="https://www.facebook.com/fleckearthmoving" target="_blank" rel="noreferrer"><FaFacebookF /></a>
+          <a href="https://www.instagram.com/fleckearthmoving/" target="_blank" rel="noreferrer"><FaInstagram /></a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
+          
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div className="about-stats fade-in-up delay-2">
+        <div className="stat-card">
+          <FaAward className="stat-icon" />
+          <h3>35+</h3>
+          <span>Decades of Experience</span>
+        </div>
+
+        <div className="stat-card">
+          <FaTools className="stat-icon" />
+          <h3>100+</h3>
+          <span>Machines & Assets</span>
+        </div>
+
+        <div className="stat-card">
+          <FaShieldAlt className="stat-icon" />
+          <h3>100%</h3>
+          <span>Safety Focused</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 {/* TESTIMONIALS SECTION */}
  <Testimonial/>
 
@@ -341,6 +349,25 @@ const Home = () => {
             </a>
           </div>
       </div>
+     </section>
+
+     <section className="fleck-brands-inline py-4" data-aos="fade-up">
+       <div className="container text-center">
+         <div className="fleck-brands-inline__row">
+           <a href="/fleck-earthmoving">
+             <img src={logo1} alt="Fleck Earthmoving" />
+           </a>
+           <a href="/fleck-planthire">
+             <img src={logo2} alt="Fleck Plant Hire" />
+           </a>
+           <a href="/nextGen-earthworks">
+             <img src={logo3} alt="NextGen Earthworks" />
+           </a>
+           <a href="/nsw-plant-haulage">
+             <img src={logo4} alt="NSW Plant Haulage" />
+           </a>
+         </div>
+       </div>
      </section>
     </main>
   );

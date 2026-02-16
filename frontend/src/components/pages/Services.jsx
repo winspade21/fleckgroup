@@ -1,160 +1,200 @@
-import React, { useEffect } from 'react';
-import { assets } from '../../assets/images/assets.js';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { assets } from "../../assets/images/assets.js";
+import { Link, useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "../../assets/css/Service.scss";
+
+import logo1 from '../../assets/images/logo5.png';
+import logo2 from '../../assets/images/logo4.png';
+import logo3 from '../../assets/images/logo3.png';
+import logo4 from '../../assets/images/logo2.png';
 
 const Services = () => {
   const location = useLocation();
 
-  // Scroll to hash on page load or route change
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      mirror: false,
+      easing: "ease-out-cubic",
+      offset: 120,
+    });
+  }, []);
+
   useEffect(() => {
     if (location.hash) {
       const target = document.querySelector(location.hash);
       if (target) {
-        requestAnimationFrame(() => {
-          const yOffset = -80; // offset for fixed header
-          const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        });
+        const yOffset = -100;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
       }
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
 
   const servicesData = [
-    {
-      id: "demolition",
-      title: "Demolition",
-      icon: "fas fa-hammer",
-      image: assets.demolition,
-      content: [
-        "We provide safe and compliant demolition for residential and commercial projects—executed with precision and care.",
-        "Our licensed team ensures minimal disruption and complete site clearance."
-      ],
-      link: "/services/demolition"
-    },
-    {
-      id: "earthmoving",
-      title: "Earthmoving",
-      icon: "fas fa-mountain",
-      image: assets.earthmoving,
-      content: [
-        "We shape terrain to match your project’s exact specifications—handling cuts, fills, and grading with efficiency.",
-        "Our fleet and operators are equipped for all scales of excavation."
-      ],
-      link: "/services/earthmoving"
-    },
-    {
-      id: "transport",
-      title: "Transport",
-      icon: "fas fa-truck-moving",
-      image: assets.transportImg,
-      content: [
-        "We deliver reliable haulage and transport solutions across varied terrains.",
-        "From aggregate to equipment, your materials arrive securely and on time."
-      ],
-      link: "/services/transport"
-    },
-    {
-      id: "haulage",
-      title: "Haulage",
-      icon: "fas fa-dolly",
-      image: assets.haulage,
-      content: [
-        "From heavy loads to bulk material, we offer dependable haulage for every job.",
-        "Our team ensures secure transport logistics that align with your deadlines."
-      ],
-      link: "/services/haulage"
-    },
-    {
-      id: "plant-hire",
-      title: "Plant Hire",
-      icon: "fas fa-tractor",
-      image: assets.plantHire,
-      content: [
-        "Hire modern, well-maintained machinery operated by experienced professionals.",
-        "Flexible terms and reliable support ensure productivity on your site."
-      ],
-      link: "/services/plant-hire"
-    },
-    {
-      id: "civil",
-      title: "Civil Works",
-      icon: "fas fa-road",
-      image: assets.civil,
-      content: [
-        "We handle road preparation, drainage, and trenching with expert precision.",
-        "Our civil capabilities ensure your infrastructure meets both code and durability standards."
-      ],
-      link: "/services/civil"
-    }
+    { id: "excavation", title: "Excavation & Grading", image: assets.earthmoving, content: "Precision excavation and grading tailored to your project.", link: "/services/excavation-grading" },
+    { id: "heavy-haulage", title: "Heavy Haulage", image: assets.haulage, content: "Specialized heavy haulage for machinery and large loads.", link: "/services/heavy-haulage" },
+    { id: "tipper-transport", title: "Tipper Transport", image: assets.transportImg, content: "Reliable tipper truck services for construction materials.", link: "/services/tipper-transport" },
+    { id: "plant-hire", title: "Plant & Equipment Hire", image: assets.plantHire, content: "Modern machinery with flexible hire options.", link: "/services/plant-hire" },
+    { id: "civil-works", title: "Civil Works", image: assets.civil, content: "Drainage, trenching, and infrastructure preparation.", link: "/services/civil-works" },
+    { id: "demolition", title: "Demolition Services", image: assets.demolition, content: "Safe, compliant demolition delivered efficiently.", link: "/services/demolition" },
   ];
 
   return (
     <>
-      {/* Inner Banner / Breadcrumb */}
-      <div className="inner-banner py-5">
-        <section className="w3l-breadcrumb py-sm-5">
-          <div className="container">
-            <div className="w3breadcrumb-gids">
-              <div className="w3breadcrumb-left">
-                <h2 className="inner-w3-title mt-sm-5 mt-4">Our Services</h2>
-              </div>
-              <div className="w3breadcrumb-right">
-                <ul className="breadcrumbs-custom-path">
-                  <li><Link to="/">Home</Link></li>
-                  <li className="active">
-                    <span className="fas fa-angle-double-right mx-2"></span> Services
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <p className="inner-page-para">Delivering expert solutions across demolition, earthmoving, transport, haulage, plant hire, and civil works.</p>
-          </div>
-        </section>       
+      {/* HERO */}
+      <div className="ultra-banner">
+        <div className="ultra-overlay"></div>
+        <div className="ultra-content" data-aos="fade-down">
+          <h1 className="ultra-title">Our Services</h1>
+          <p className="ultra-subtitle">
+            Delivering precision, reliability, and excellence across every project.
+          </p>
+          <ul className="ultra-breadcrumbs" data-aos="fade-up" data-aos-delay="200">
+            <li><Link to="/">Home</Link></li>
+            <li className="active"><span className="fas fa-angle-double-right mx-2"></span> Services</li>
+          </ul>
+        </div>
       </div>
 
-      {/* Services Section */}
-      <section className="section-3 bg-light py-5" id="services">
+      {/* SERVICES GRID */}
+      <section className="section-services">
         <div className="container">
-          <div className="row gy-4">
-            {servicesData.map(service => (
-              <div className="col-md-4 col-lg-4" id={service.id} key={service.id}>
-                <div className="item">
-                  <div className="service-image">
-                    <img src={service.image} alt={service.title} className="w-100" />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title d-flex align-items-center gap-2">
-                      <i className={`${service.icon} service-icon`}></i>
-                      <h3 className="mb-0">{service.title}</h3>
-                    </div>
-                    <div className="service-content">
-                      {service.content.map((para, i) => <p key={i}>{para}</p>)}
-                    </div>
-                    <Link to={service.link} className="btn btn-primary">Read More</Link>
-                  </div>
+          <div className="services-grid">
+            {servicesData.map((service, idx) => (
+              <article key={service.id} className="service-card" data-aos="fade-up" data-aos-delay={idx * 150}>
+                <div className="service-img">
+                  <img src={service.image} alt={service.title} loading="lazy" />
+                  <div className="gradient-overlay"></div>
                 </div>
-              </div>
+                <div className="service-info">
+                  <h3>{service.title}</h3>
+                  <p>{service.content}</p>
+                  <Link to={service.link} className="btn-service">Explore →</Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="services-cta py-5">
+      {/* FULL SERVICE BREAKDOWN */}
+      <section className="service-breakdown">
         <div className="container">
-          <div className="cta-card">
-            <div className="cta-bg">
-              <img src={assets.ctaImage} alt="" aria-hidden="true" />
+          {/* Each service row */}
+          {servicesData.map((service, idx) => (
+            <div key={service.id} className={`breakdown-row ${idx % 2 !== 0 ? "reverse" : ""}`} data-aos="fade-up">
+              <div className="breakdown-img">
+                <img src={service.image} alt={service.title} />
+              </div>
+              <div className="breakdown-content">
+                <h2>{service.title}</h2>
+                <p>{service.content}</p>
+                <ul>
+                  <li>Professional execution</li>
+                  <li>Safety and compliance</li>
+                  <li>Modern equipment</li>
+                  <li>Flexible solutions</li>
+                  <li>Project-specific planning</li>
+                </ul>
+                <Link to="/contact" className="btn-breakdown">Request Quote</Link>
+              </div>
             </div>
-            <div className="cta-content text-center">
-              <h2>Got a Project in Mind?</h2>
-              <p>Speak directly with our experienced team and get clear, honest advice. Free quote. No pressure.</p>
-              <Link to="/contact" className="btn-1">Let’s Get Started</Link>
-              <small>No obligations • Fast response • Trusted across NSW</small>
-            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICE PROCESS TIMELINE - CINEMATIC WITH TRUE SLOPED ARROWS */}
+<section className="service-process-timeline" data-aos="fade-up">
+  <div className="container">
+    <h2 className="section-title">Our Service Process</h2>
+    <p className="section-subtitle">
+      From consultation to completion, we follow a precise workflow to ensure excellence.
+    </p>
+
+    <div className="timeline">
+      {/* Step 1 */}
+      <div className="timeline-step">
+        <div className="step-icon"><i className="fas fa-comments"></i></div>
+        <div className="step-number">1</div>
+        <h3>Consultation</h3>
+        <p>We discuss project needs, scope, and goals for clear understanding.</p>
+        {/* Sloped arrow */}
+        <svg className="timeline-arrow" width="120" height="60">
+          <line x1="0" y1="0" x2="120" y2="50" stroke="#ff6600" strokeWidth="4" />
+          <polygon points="115,45 120,50 115,55" fill="#ff6600" />
+        </svg>
+      </div>
+
+      {/* Step 2 */}
+      <div className="timeline-step">
+        <div className="step-icon"><i className="fas fa-pencil-ruler"></i></div>
+        <div className="step-number">2</div>
+        <h3>Planning & Design</h3>
+        <p>Our team creates a detailed plan tailored to your project.</p>
+        <svg className="timeline-arrow" width="120" height="60">
+          <line x1="0" y1="0" x2="120" y2="50" stroke="#ff6600" strokeWidth="4" />
+          <polygon points="115,45 120,50 115,55" fill="#ff6600" />
+        </svg>
+      </div>
+
+      {/* Step 3 */}
+      <div className="timeline-step">
+        <div className="step-icon"><i className="fas fa-cogs"></i></div>
+        <div className="step-number">3</div>
+        <h3>Execution</h3>
+        <p>Skilled operators deploy modern machinery efficiently.</p>
+        <svg className="timeline-arrow" width="120" height="60">
+          <line x1="0" y1="0" x2="120" y2="50" stroke="#ff6600" strokeWidth="4" />
+          <polygon points="115,45 120,50 115,55" fill="#ff6600" />
+        </svg>
+      </div>
+
+      {/* Step 4 */}
+      <div className="timeline-step">
+        <div className="step-icon"><i className="fas fa-check-circle"></i></div>
+        <div className="step-number">4</div>
+        <h3>Completion & Review</h3>
+        <p>Final checks and client review ensure total satisfaction.</p>
+        {/* No arrow after last step */}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* CTA */}
+      <section className="ultra-cta" data-aos="zoom-in">
+        <div className="cta-card">
+          <img src={assets.ctaImage} alt="CTA" />
+          <div className="cta-content">
+            <h2>Got a Big Project?</h2>
+            <p>Speak directly with our expert team. Clear advice, no pressure, cinematic results.</p>
+            <Link to="/contact" className="btn-cta">Let’s Make It Happen</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="fleck-brands-inline py-4" data-aos="fade-up">
+        <div className="container text-center">
+          <div className="fleck-brands-inline__row">
+            <a href="/brand1">
+              <img src={logo1} alt="Fleck Earthmoving" />
+            </a>
+            <a href="/brand2">
+              <img src={logo2} alt="Fleck Haulage" />
+            </a>
+            <a href="/brand3">
+              <img src={logo3} alt="Fleck Civil" />
+            </a>
+            <a href="/brand4">
+              <img src={logo4} alt="Fleck Plant Hire" />
+            </a>
           </div>
         </div>
       </section>

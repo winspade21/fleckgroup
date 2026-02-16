@@ -1,0 +1,111 @@
+/* ========================= */
+/* FLOATING CONTACT BUTTON   */
+/* ========================= */
+.contact-fab {
+  position: fixed;
+  bottom: 20px; // always from bottom
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999; // above most content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b1121b;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: #fff;
+    color: #b1121b;
+    transform: translateY(-3px);
+  }
+
+  @media (min-width: 1200px) {
+    bottom: 40px;
+    right: 40px;
+  }
+
+  @media (max-width: 767px) {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+/* ========================= */
+/* CONTACT INFO (Mobile/Office numbers) */
+/* ========================= */
+.contact-info {
+  p {
+    margin: 5px 0;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  strong {
+    margin-right: 5px;
+    min-width: 60px; // keeps label aligned
+  }
+
+  a {
+    color: #b1121b;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 767px) {
+    p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    p {
+      font-size: 13px;
+    }
+
+    strong {
+      min-width: 50px; // smaller screens
+    }
+  }
+}
+
+/* ========================= */
+/* SEND MESSAGE BUTTON       */
+/* ========================= */
+.contact-modal form .cta-btn {
+  padding: 10px 20px;
+  background: #b1121b;
+  color: #fff;
+  border: none;
+  border-radius: 50px;      // rounded like the fab button
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease, background 0.3s ease;
+
+  &:hover {
+    background: #fff;
+    color: #b1121b;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 12px;
+  }
+}
