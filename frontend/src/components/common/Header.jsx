@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import { FaPhone, FaEnvelope, FaQuoteLeft } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/images/logo1.png";
 import fleckGroupLogo from "../../assets/images/logo5.png";
@@ -13,170 +13,240 @@ import "../../assets/css/Header.scss";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showCTA, setShowCTA] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const location = useLocation();
 
-  /* SINGLE SCROLL LISTENER (performance fix) */
+  // Scroll shrink effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
-      setShowCTA(window.scrollY < 120);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* Scroll to top on route change */
+  // Scroll to top + close menu on route change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setExpanded(false);
   }, [location.pathname]);
 
-  /* Adjust navbar top depending on bars */
-  useEffect(() => {
-    const adjustNavbarTop = () => {
-      const navbar = document.querySelector(".navbar-custom");
-      const topBar = document.querySelector(".top-bar");
-      const companyStrip = document.querySelector(".company-strip");
-
-      if (!navbar) return;
-
-      const topBarHeight =
-        topBar && window.innerWidth > 991 ? topBar.offsetHeight : 0;
-
-      const stripHeight =
-        companyStrip && window.innerWidth > 991
-          ? companyStrip.offsetHeight
-          : 0;
-
-      navbar.style.top = `${topBarHeight + stripHeight}px`;
-    };
-
-    adjustNavbarTop();
-    window.addEventListener("resize", adjustNavbarTop);
-    return () => window.removeEventListener("resize", adjustNavbarTop);
-  }, []);
-
-  /* Handler for same-page nav click */
-  const handleSamePageScroll = (path) => (e) => {
+  const handleNavClick = (path) => (e) => {
     if (location.pathname === path) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       e.preventDefault();
     }
+    setExpanded(false);
   };
 
+  // Active classes
+  const navLinkClass = ({ isActive }) =>
+    isActive ? "nav-link active" : "nav-link";
+
+  const dropdownItemClass = ({ isActive }) =>
+    isActive ? "dropdown-item active" : "dropdown-item";
+
   return (
-    <header className="site-header">
+    <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
+
       {/* ================= TOP BAR ================= */}
       <div className="top-bar">
-        {/* LEFT */}
+
+        {/* Logo Left */}
         <div className="top-left">
-          <span><FaPhone /> 0419 111 133</span>
-          <span><FaEnvelope /> admin@fleckgroup.com.au</span>
+          <Link
+            to="/"
+            className="logo-link"
+            onClick={(e) => {
+              if (location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                e.preventDefault();
+              }
+              setExpanded(false);
+            }}
+          >
+            <img src={logo} alt="Fleck Group" className="main-logo" />
+          </Link>
         </div>
 
-        {/* CENTER — COMPANY BRANDS */}
-        <div className="top-brands">
-          <Link to="/fleck-earthmoving">
-            <img src={fleckGroupLogo} alt="Fleck Group" />
-          </Link>
+        {/* Contact Center */}
+        {/* <div className="top-center">
+          <span><FaPhone /> 0419 111 133</span>
+          <span><FaEnvelope /> admin@fleckgroup.com.au</span>
+        </div> */}
 
-          <Link to="/fleck-planthire">
+        {/* Brand Logos Right */}
+        <div className="top-right">
+          <Link to="/fleck-earthmoving">
             <img src={earthmovingLogo} alt="Fleck Earthmoving" />
           </Link>
-
+          <Link to="/fleck-planthire">
+            <img src={fleckGroupLogo} alt="Fleck PlantHire" />
+          </Link>
+          <Link to="/nsw-planthaulage">
+            <img src={civilLogo} alt="NSW Plant Haulage" />
+          </Link>
           <Link to="/nextgen-earthworks">
             <img src={nextgenLogo} alt="NextGen Earthworks" />
           </Link>
-
-          <Link to="/nsw-planthaulage">
-            <img src={civilLogo} alt="Fleck Civil" />
-          </Link>
         </div>
 
-        {/* RIGHT */}
-        <div className="top-right">
-          <div className="office-hours">
-            <strong>Office Hours:</strong> Mon – Fri : 7:00AM – 5:00PM
-          </div>
-          <div className="social-icons">
-            <a href="https://www.facebook.com/fleckearthmoving" target="_blank" rel="noreferrer">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/fleckearthmoving/" target="_blank" rel="noreferrer">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* ================= NAVBAR ================= */}
       <Navbar
         expand="lg"
         fixed="top"
-        className={`navbar-custom ${scrolled ? "scrolled" : ""}`}
+        expanded={expanded}
+        onToggle={(isOpen) => setExpanded(isOpen)}
+        className="navbar-custom"
       >
         <Container fluid>
-          {/* LOGO */}
-          <Navbar.Brand as={Link} to="/" className="logo me-auto">
-            <img src={logo} alt="Fleck Group" />
+
+          {/* Mobile Logo */}
+          <Navbar.Brand
+            as={Link}
+            to="/"
+            className="d-lg-none"
+            onClick={() => setExpanded(false)}
+          >
+            <img src={logo} alt="Fleck Group" style={{ height: "50px" }} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="main-navbar" />
+
           <Navbar.Collapse id="main-navbar">
             <Nav className="mx-auto">
-              <Nav.Link as={Link} to="/" onClick={handleSamePageScroll("/")}>Home</Nav.Link>
-              <Nav.Link as={Link} to="/about" onClick={handleSamePageScroll("/about")}>About Us</Nav.Link>
 
-              <NavDropdown title="Services" id="services-dropdown">
+              {/* Home */}
+              <Nav.Link
+                as={NavLink}
+                to="/"
+                className={navLinkClass}
+                onClick={handleNavClick("/")}
+              >
+                Home
+              </Nav.Link>
+
+              {/* About */}
+              <Nav.Link
+                as={NavLink}
+                to="/about"
+                className={navLinkClass}
+              >
+                About Us
+              </Nav.Link>
+
+              {/* Services */}
+              <NavDropdown
+                title="Services"
+                id="services-dropdown"
+                className={
+                  location.pathname.startsWith("/services")
+                    ? "active-dropdown"
+                    : ""
+                }
+              >
                 <NavDropdown.Item
-                    as={Link}
-                    to="/services"
-                    className="view-all-services"
-                    onClick={handleSamePageScroll("/services")}
-                  >
-                    View All Services
-              </NavDropdown.Item>
+                  as={NavLink}
+                  to="/services"
+                  className={dropdownItemClass}
+                >
+                  View All Services
+                </NavDropdown.Item>
 
                 <NavDropdown.Divider />
 
-                <NavDropdown.Item as={Link} to="/services/earthmoving" onClick={handleSamePageScroll("/services/earthmoving")}>
+                <NavDropdown.Item as={NavLink} to="/services/earthmoving" className={dropdownItemClass}>
                   Earthmoving
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/services/civil" onClick={handleSamePageScroll("/services/civil")}>
+
+                <NavDropdown.Item as={NavLink} to="/services/civil" className={dropdownItemClass}>
                   Civil
                 </NavDropdown.Item>
-                 <NavDropdown.Item as={Link} to="/services/demolition" onClick={handleSamePageScroll("/services/demolition")}>
+
+                <NavDropdown.Item as={NavLink} to="/services/demolition" className={dropdownItemClass}>
                   Demolition
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/services/haulage" onClick={handleSamePageScroll("/services/haulage")}>
+
+                <NavDropdown.Item as={NavLink} to="/services/haulage" className={dropdownItemClass}>
                   Haulage
-                </NavDropdown.Item>               
-                <NavDropdown.Item as={Link} to="/services/transport" onClick={handleSamePageScroll("/services/transport")}>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to="/services/transport" className={dropdownItemClass}>
                   Transport
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/services/plant-hire" onClick={handleSamePageScroll("/services/plant-hire")}>
+
+                <NavDropdown.Item as={NavLink} to="/services/plant-hire" className={dropdownItemClass}>
                   Plant Hire
                 </NavDropdown.Item>
-                
               </NavDropdown>
 
-              <Nav.Link as={Link} to="/projects" onClick={handleSamePageScroll("/projects")}>Projects</Nav.Link>
-              <Nav.Link as={Link} to="/testimonial" onClick={handleSamePageScroll("/testimonial")}>Testimonials</Nav.Link>
-              <Nav.Link as={Link} to="/faqs" onClick={handleSamePageScroll("/faqs")}>FAQ</Nav.Link>
-            </Nav>
+              {/* Projects */}
+              <NavDropdown
+                title="Projects & Info"
+                id="projects-info-dropdown"
+                className={
+                  ["/projects", "/testimonial", "/faqs"].includes(location.pathname)
+                    ? "active-dropdown"
+                    : ""
+                }
+              >
+                <NavDropdown.Item as={NavLink} to="/projects" className={dropdownItemClass}>
+                  Projects
+                </NavDropdown.Item>
 
-            {/* CTA */}
-            <div className={`nav-cta-button ${showCTA ? "show" : "hide"}`}>
-              <Link to="/contact">
-                <button className="nav-quote-btn">
-                  <FaQuoteLeft /> Get A Quote
-                </button>
-              </Link>
-            </div>
+                <NavDropdown.Item as={NavLink} to="/testimonial" className={dropdownItemClass}>
+                  Testimonials
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to="/faqs" className={dropdownItemClass}>
+                  FAQ
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              {/* Company */}
+              <NavDropdown
+                title="Company"
+                id="company-dropdown"
+                className={
+                  [
+                    "/fleck-earthmoving",
+                    "/fleck-planthire",
+                    "/nsw-planthaulage",
+                    "/nextgen-earthworks",
+                  ].includes(location.pathname)
+                    ? "active-dropdown"
+                    : ""
+                }
+              >
+                <NavDropdown.Item as={NavLink} to="/fleck-earthmoving" className={dropdownItemClass}>
+                  Fleck Earthmoving
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to="/fleck-planthire" className={dropdownItemClass}>
+                  Fleck PlantHire
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to="/nsw-planthaulage" className={dropdownItemClass}>
+                  NSW Plant Haulage
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to="/nextgen-earthworks" className={dropdownItemClass}>
+                  NextGen Earthworks
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              {/* Contact */}
+              <Nav.Link
+                as={NavLink}
+                to="/contact"
+                className={navLinkClass}
+              >
+                Contact
+              </Nav.Link>
+
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -5,6 +5,7 @@ import aboutImg1 from '../../assets/images/haulage.jpg';
 import aboutImg2 from '../../assets/images/earthmoving.jpg';
 import faqImg from '../../assets/images/slide1.jpg';
 import FleckTabs from "../common/FleckTabs.jsx";
+import HeroSlider from "../common/HeroSlider.jsx"
 import OurTeam from "../common/OurTeam.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -24,32 +25,10 @@ const About = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="inner-banner1">
-        <div className="inner-content" data-aos="fade-down">
-          <section className="w3l-breadcrumb1 py-sm-5">
-            <div className="container">
-              <div className="w3breadcrumb-gids1">
-                <div className="w3breadcrumb-left" data-aos="fade-right" data-aos-delay="100">
-                  <h2 className="inner-w3-title1 mt-sm-5 mt-4">
-                    About Us
-                  </h2>
-                </div>
-                <div className="w3breadcrumb-right1" data-aos="fade-left" data-aos-delay="200">
-                  <ul className="breadcrumbs-custom-path1">
-                    <li>
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li className="active">
-                      <span className="fas fa-angle-double-right mx-2"></span> About Us
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+
+      {/* HERO SECTION */}
+      <HeroSlider/>
+
 
       {/* Passion / About Section */}
       <section className="w3l-passion-mid-sec py-5" data-aos="fade-up">

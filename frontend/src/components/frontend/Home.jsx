@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Testimonial from "../common/Testimonials.jsx";
+import ServiceSection from "../common/ServiceSection.jsx";
 import "../../assets/css/style.scss";
 
 import slide1 from "../../assets/images/slide1.jpg";
@@ -8,13 +9,13 @@ import slide2 from "../../assets/images/slide2.jpeg";
 import slide3 from "../../assets/images/earthmoving.jpg";
 import abtVideo from "../../assets/images/about.mp4"; 
 import earthmovingImg from "../../assets/images/earthmoving.jpg"
-import civilImg from "../../assets/images/civil.jpeg"
-import haulageImg from "../../assets/images/haulage.jpg"
+import civilImg from "../../assets/images/civil-dozer.jpg"
+import haulageImg from "../../assets/images/haulage-smalldigger.jpg"
 import transportImg from "../../assets/images/transport.jpg"
 import demolitionImg from "../../assets/images/demolition.jpeg"
 import plantHireImg from "../../assets/images/plantHire.jpg"
 
-import { FaCheckCircle, FaFacebookF, FaLinkedinIn, FaInstagram, FaAward, FaShieldAlt, FaTools } from "react-icons/fa";
+import { FaCheckCircle, FaFacebookF, FaLinkedinIn, FaInstagram, FaAward, FaShieldAlt, FaTools, FaTrophy } from "react-icons/fa";
 
 import logo1 from '../../assets/images/logo5.png';
 import logo2 from '../../assets/images/logo4.png';
@@ -106,10 +107,10 @@ const Home = () => {
               <p>Supporting civil & construction projects since 1988</p>
               <div className="mt-3">
                 <Link to="/contact" className="hero-btn btn text-decoration-none me-3">
-                  Get A Free Quote
+                  Request Availability
                 </Link>
                 <Link to="/projects" className="hero-btn1 btn text-decoration-none">
-                  Our Services
+                  View Our Fleet
                 </Link>
               </div>
             </div>
@@ -172,102 +173,7 @@ const Home = () => {
 
 
 {/* SERVICE SECTION */}
-     <section className="services-section">
-      <div className="service-header">
-
-        {/* Service 1 */}
-        <div className="service-row">
-          <div className="service-text reveal-left">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-road"></i> Civil Works</h3>
-            <p>
-              We provide reliable civil construction services specialising in bulk earthworks, roadworks, and infrastructure projects, delivered with a strong focus on safety and efficiency.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-right">
-            <img src={civilImg} alt="Civil Works" />
-          </div>
-        </div>
-
-        {/* Service 2 */}
-        <div className="service-row reverse">
-          <div className="service-text reveal-right">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-hammer"></i> Demolition</h3>
-            <p>
-              Professional demolition services for residential and commercial developments, delivered in accordance with stringent safety, environmental, and regulatory compliance requirements.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-left">
-            <img src={demolitionImg} alt="Demolition" />
-          </div>
-        </div>
-
-        {/* Service 3 */}
-        <div className="service-row">
-          <div className="service-text reveal-left">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-mountain"></i> Earthmoving</h3>
-            <p>
-              Leveraging modern equipment and experienced operators to handle earthmoving projects, regardless of scale or complexity.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-right">
-            { <img src={earthmovingImg} alt="Earthmoving" />}
-          </div>
-        </div>
-
-        {/* Service 4 */}
-        <div className="service-row reverse">
-          <div className="service-text reveal-right">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-dolly"></i> Haulage</h3>
-            <p>
-              Efficient and reliable bulk transport solutions with a modern fleet and experienced operators, ensuring safe, timely delivery and projects remain on track.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-left">
-            <img src={haulageImg} alt="Haulage" />
-          </div>
-        </div>
-
-        {/* Service 5 */}
-        <div className="service-row">
-          <div className="service-text reveal-left">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-tractor"></i> Plant Hire</h3>
-            <p>
-              Efficient and reliable bulk transport solutions with a modern fleet and experienced operators, ensuring materials are delivered safely and projects stay on schedule.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-right">
-            <img src={plantHireImg} alt="Plant Hire" />
-          </div>
-        </div>
-
-        {/* Service 6 */}
-        <div className="service-row reverse">
-          <div className="service-text reveal-right">
-            <span className="red-bar"></span>
-            <h3><i className="fa fa-truck"></i> Transport</h3>
-            <p>
-              Efficient transport solutions supported by a modern, reliable fleet and experienced personnel, ensuring materials are moved safely and delivered on time for projects of any scale.
-            </p>
-            <Link to="/services" className="service-btn">View Services</Link>
-          </div>
-          <div className="service-image reveal-left">
-            <img src={transportImg} alt="Transport" />
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+     <ServiceSection/>
 
 {/* Why Choose Us */}
 <section className="about-overview">
@@ -285,7 +191,7 @@ const Home = () => {
         </p>
 
         <ul className="about-points">
-          <li><FaCheckCircle className="icon" /> Over 30 Years Industry Experience</li>
+          <li><FaCheckCircle className="icon" /> Over 35+ Years Industry Experience</li>
           <li><FaCheckCircle className="icon" /> Fully Licensed & Insured</li>
           <li><FaCheckCircle className="icon" /> Modern Fleet & Skilled Operators</li>
           <li><FaCheckCircle className="icon" /> Projects Delivered On Time</li>
@@ -306,7 +212,7 @@ const Home = () => {
         <div className="stat-card">
           <FaAward className="stat-icon" />
           <h3>35+</h3>
-          <span>Decades of Experience</span>
+          <span>Years of Industry Experience</span>
         </div>
 
         <div className="stat-card">
@@ -319,6 +225,12 @@ const Home = () => {
           <FaShieldAlt className="stat-icon" />
           <h3>100%</h3>
           <span>Safety Focused</span>
+        </div>
+
+      <div className="stat-card">
+          <FaTrophy className="stat-icon" />
+          <h3>1200+</h3>
+          <span>Projects Successfully Completed</span>
         </div>
       </div>
 

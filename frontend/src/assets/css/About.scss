@@ -150,83 +150,177 @@ $text-muted: #555;
 }
 
 /* ================= HERO / BANNER ================= */
-.inner-banner1 {
-  background: url("../images/slide2.jpeg") no-repeat center;
-  background-size: cover;
-  min-height: 90vh;
+.slider-hero {
+  height: 80vh;
+  margin-top: -50px;
   position: relative;
-  z-index: 1;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 15px;
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-  rgba(36, 26, 26, 0.75),
-  rgba(36, 26, 26, 0.75)
-);
-  }
+  .list-slider {
+    .list-item {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.5s;
 
-}
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-/* =====================================================
-   BREADCRUMB
-===================================================== */
-.w3breadcrumb-gids1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+          to top,
+          #181717e8 30%,
+          transparent
+        );
+      }
 
-h2.inner-w3-title1 {
-  font-size: 56px;
-  line-height: 1;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 5px 5px 8px #ee1c1c;
-  margin-bottom: 10px;
+      .content {
+        position: absolute;
+        left: 10%;
+        top: 20%;
+        width: 500px;
+        max-width: 80%;
+        z-index: 1;
 
-  @media (max-width: 667px) {
-    font-size: 30px;
-  }
-}
+        p:nth-child(1) {
+          text-transform: uppercase;
+          letter-spacing: 10px;
+        }
 
-.breadcrumbs-custom-path1 {
-  li {
-    display: inline-block;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 5px;
+        h2 {
+          font-size: 60px;
+          margin: 0;
+        }
+      }
 
-    span {
-      font-size: 12px;
-    }
-
-    &.active {
-      color: #f0f0f0;
-    }
-
-    a {
-       color: #f00e21 !important;
-      opacity: 0.9;
-      text-decoration: none !important;
-      font-size: 20px;
-
-      &:hover {
+      &.active {
         opacity: 1;
+        z-index: 10;
       }
     }
   }
+
+  @keyframes showContent {
+    to {
+      transform: translateY(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  .list-item {
+    p:nth-child(1),
+    h2,
+    p:nth-child(3) {
+      transform: translateY(30px);
+      filter: blur(20px);
+      opacity: 0;
+      animation: showContent 0.5s 0.7s ease-in-out forwards;
+    }
+
+    h2 {
+      animation-delay: 1s;
+    }
+
+    p:nth-child(3) {
+      animation-duration: 1.3s;
+    }
+  }
+
+  .arrows-btn {
+    position: absolute;
+    top: 30%;
+    right: 50px;
+    z-index: 100;
+
+    button {
+      background: #eee5;
+      border: none;
+      font-family: monospace;
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      font-size: x-large;
+      color: #eee;
+      transition: 0.5s;
+      margin: 5px;
+
+      &:hover {
+        background: #eee;
+        color: #010101;
+      }
+    }
+  }
+
+  .thumbnail {
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    justify-content: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .item-thumbnail {
+      width: 150px;
+      height: 220px;
+      filter: brightness(0.5);
+      transition: 0.5s;
+      cursor: pointer;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      &.active {
+        filter: brightness(1.2);
+      }
+
+      .content-thumbnail {
+        position: absolute;
+        inset: auto 10px 10px 10px;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+
+  @media screen and (max-width: 678px) {
+    .thumbnail {
+      justify-content: start;
+    }
+
+    .list-slider .list-item .content h2 {
+      font-size: 40px;
+    }
+
+    .arrows-btn {
+      top: 10%;
+    }
+  }
 }
+
 
 /* ================= CTA SECTION ================= */
 
