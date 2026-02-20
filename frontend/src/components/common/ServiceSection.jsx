@@ -7,7 +7,7 @@ import earthmoving from "../../assets/images/earthmoving.jpg";
 import haulage from "../../assets/images/haulage-smalldigger.jpg";
 import demolition from "../../assets/images/demolition.jpeg";
 import transport from "../../assets/images/transport.jpg";
-import planthire from "../../assets/images/planthire.jpg";
+import planthire from "../../assets/images/plantHire.jpg";
 
 import "../../assets/css/ServiceSection.scss";
 
