@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../assets/css/projects.scss";
+import "../../assets/css/Projects.scss";
 
 import civilImg from "../../assets/images/civil-dozer.jpg";
 import earthmovingImg from "../../assets/images/earthmoving.jpg";
