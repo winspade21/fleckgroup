@@ -5,7 +5,7 @@ import civilImg from "../../assets/images/civil-dozer.jpg";
 import earthmovingImg from "../../assets/images/earthmoving.jpg";
 import demolitionImg from "../../assets/images/demolition.jpeg";
 import haulageImg from "../../assets/images/haulage-smalldigger.jpg";
-import plantHireImg from "../../assets/images/planthire.jpg";
+import plantHireImg from "../../assets/images/plantHire.jpg";
 import transportImg from "../../assets/images/transport.jpg";
 
 const projectsData = [
