@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../../assets/images/assets.js";
 import { Link, useLocation } from "react-router-dom";
+import ServiceSlider from "../common/ServiceSlider.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../assets/css/Service.scss";
@@ -45,43 +46,46 @@ const Services = () => {
     { id: "demolition", title: "Demolition Services", image: assets.demolition, content: "Safe, compliant demolition delivered efficiently.", link: "/services/demolition" },
   ];
 
+  const [activeFAQ, setActiveFAQ] = useState(null);
+
+  const faqData = [
+    {
+      question: "What types of projects do you handle?",
+      answer: "We handle excavation, civil works, heavy haulage, plant hire, and demolition for commercial, residential, and industrial projects."
+    },
+    {
+      question: "Are your operators certified and experienced?",
+      answer: "Yes, all our operators are fully certified and trained to use modern machinery safely and efficiently."
+    },
+    {
+      question: "How do you ensure project safety?",
+      answer: "We follow strict safety protocols, regular equipment inspections, and continuous staff training to maintain a zero-compromise safety culture."
+    },
+    {
+      question: "Can you provide a quote before starting a project?",
+      answer: "Absolutely! We provide detailed quotes after understanding your project scope, requirements, and site conditions."
+    }
+  ];
+
+  const toggleFAQ = (index) => {
+    setActiveFAQ(activeFAQ === index ? null : index);
+  };
+
   return (
     <>
-      {/* HERO */}
-      <div className="ultra-banner">
-        <div className="ultra-overlay"></div>
-        <div className="ultra-content" data-aos="fade-down">
-          <h1 className="ultra-title">Our Services</h1>
-          <p className="ultra-subtitle">
-            Delivering precision, reliability, and excellence across every project.
-          </p>
-          <ul className="ultra-breadcrumbs" data-aos="fade-up" data-aos-delay="200">
-            <li><Link to="/">Home</Link></li>
-            <li className="active"><span className="fas fa-angle-double-right mx-2"></span> Services</li>
-          </ul>
-        </div>
-      </div>
 
-      {/* SERVICES GRID */}
-      <section className="section-services">
-        <div className="container">
-          <div className="services-grid">
-            {servicesData.map((service, idx) => (
-              <article key={service.id} className="service-card" data-aos="fade-up" data-aos-delay={idx * 150}>
-                <div className="service-img">
-                  <img src={service.image} alt={service.title} loading="lazy" />
-                  <div className="gradient-overlay"></div>
-                </div>
-                <div className="service-info">
-                  <h3>{service.title}</h3>
-                  <p>{service.content}</p>
-                  <Link to={service.link} className="btn-service">Explore →</Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    <ServiceSlider/>
+
+{/* SERVICES INTRO */}
+<section className="services-intro" data-aos="fade-up">
+  <div className="container text-center">
+    <h1>Expert Construction Services Delivered Safely</h1>
+    <p>
+        We specialize in excavation, heavy haulage, civil works, and plant hire solutions for commercial and residential projects. Our skilled team delivers each project safely, efficiently, and on schedule, using modern machinery and industry best practices.
+    </p>
+  </div>
+</section>
+
 
       {/* FULL SERVICE BREAKDOWN */}
       <section className="service-breakdown">
@@ -109,10 +113,44 @@ const Services = () => {
         </div>
       </section>
 
+      <section className="why-choose-us" data-aos="fade-up">
+  <div className="container text-center">
+    <h2>Why Choose Us</h2>
+    <p>
+      We deliver construction solutions with precision, safety, and reliability. Our team ensures every project exceeds expectations.
+    </p>
+
+    <div className="features-grid">
+      <div className="feature-card">
+        <i className="fas fa-hard-hat"></i>
+        <h3>Expert Team</h3>
+        <p>Certified professionals with years of industry experience.</p>
+      </div>
+      <div className="feature-card">
+        <i className="fas fa-shield-alt"></i>
+        <h3>Safety First</h3>
+        <p>Strict safety protocols ensure zero compromise on standards.</p>
+      </div>
+      <div className="feature-card">
+        <i className="fas fa-clock"></i>
+        <h3>On-Time Delivery</h3>
+        <p>Projects completed efficiently, without delays.</p>
+      </div>
+      <div className="feature-card">
+        <i className="fas fa-cogs"></i>
+        <h3>Modern Equipment</h3>
+        <p>State-of-the-art machinery for superior project execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
       {/* SERVICE PROCESS TIMELINE - CINEMATIC WITH TRUE SLOPED ARROWS */}
 <section className="service-process-timeline" data-aos="fade-up">
   <div className="container">
-    <h2 className="section-title">Our Service Process</h2>
+    <h2 className="section-title">Our Service Procss</h2>
     <p className="section-subtitle">
       From consultation to completion, we follow a precise workflow to ensure excellence.
     </p>
@@ -166,6 +204,27 @@ const Services = () => {
     </div>
   </div>
 </section>
+
+  {/* ================= FAQ SECTION ================= */}
+      <section className="faq-section" data-aos="fade-up">
+        <div className="container">
+          <h2>Frequently Asked Questions</h2>
+          <p>Answers to the most common questions about our construction services.</p>
+
+          <div className="faq-list">
+            {faqData.map((faq, index) => (
+              <div key={index} className={`faq-item ${activeFAQ === index ? "active" : ""}`}>
+                <button className="faq-question" onClick={() => toggleFAQ(index)}>
+                  {faq.question} <span className="faq-toggle">+</span>
+                </button>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
       {/* CTA */}

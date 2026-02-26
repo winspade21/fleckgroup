@@ -10,9 +10,15 @@ import Services from "./components/pages/Services.jsx";
 import Demolition from "./components/pages/Demolition.jsx";
 import Earthmoving from  "./components/pages/Earthmoving.jsx"
 import Civil from "./components/pages/Civil.jsx"
+import Haulage from './components/pages/Haulage.jsx';
+import PlantHire from './components/pages/PlantHire.jsx';
+import Projects from './components/pages/Projects.jsx';
+import Transport from './components/pages/Transport.jsx';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+
+
 
 function App() {
   useEffect(() => {
@@ -31,6 +37,11 @@ function App() {
         <Route path='/services/demolition' element={<Demolition/>}/>
         <Route path='/services/earthmoving' element={<Earthmoving/>}/>
         <Route path='/services/civil' element={<Civil/>}/>
+        <Route path='/services/haulage' element={<Haulage/>}/>
+        <Route path='/services/plant-hire' element={<PlantHire/>}/>
+        <Route path='/services/transport' element={<Transport/>}/>
+        <Route path='/projects' element={<Projects/>}/>
+
       </Routes>
       <ContactModal/>
       <Footer/>

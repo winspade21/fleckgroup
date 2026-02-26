@@ -1,10 +1,7 @@
-/* =======================================================
-   FLECK GROUP DEMOLITION PAGE SCSS
-   All styles match Civil Works page but with demolition-* prefix
-======================================================= */
+/* Haulage.scss - exact same style as Civil Works, just haulage-* classes */
 
 /* ---------- HERO ---------- */
-.demolition-hero-banner {
+.haulage-hero-banner {
   position: relative;
   width: 100%;
   height: 85vh;
@@ -14,10 +11,9 @@
   align-items: center;
   color: #fff;
   overflow: hidden;
-  background-attachment: fixed;
 }
 
-.demolition-hero-banner::before {
+.haulage-hero-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -30,14 +26,14 @@
   z-index: 1;
 }
 
-.demolition-breadcrumbs {
+.haulage-breadcrumbs {
   position: relative;
   z-index: 2;
   width: 100%;
   padding: 0 20px;
 }
 
-.demolition-hero-title {
+.haulage-hero-title {
   font-size: 60px;
   font-weight: 900;
   letter-spacing: 2px;
@@ -47,7 +43,7 @@
   text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
 }
 
-.demolition-hero-subtitle {
+.haulage-hero-subtitle {
   font-size: 20px;
   font-weight: 500;
   color: #fff;
@@ -57,7 +53,7 @@
 }
 
 /* Breadcrumbs */
-.demolition-breadcrumbs-path {
+.haulage-breadcrumbs-path {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -67,29 +63,34 @@
   font-weight: 600;
 }
 
-.demolition-breadcrumbs-path li a {
+.haulage-breadcrumbs-path li a {
   color: #d62828;
   font-weight: 600;
   text-decoration: none;
 }
 
-.demolition-breadcrumbs-path li a:hover {
+.haulage-breadcrumbs-path li a:hover {
   color: #fff;
 }
 
-.demolition-breadcrumbs-path .fas {
+.haulage-breadcrumbs-path .fas {
   font-size: 10px;
   margin: 0 6px;
   opacity: 0.7;
 }
 
+/* Parallax effect */
+.haulage-hero-banner {
+  background-attachment: fixed;
+}
+
 /* ---------- MAIN ---------- */
-.demolition-service-page {
+.haulage-service-page {
   padding: 100px 0;
   background: #f5f5f5;
 }
 
-.demolition-service-layout {
+.haulage-service-layout {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 70px;
@@ -97,19 +98,19 @@
 }
 
 /* ---------- SIDEBAR ---------- */
-.demolition-sidebar {
+.haulage-sidebar {
   position: sticky;
   top: 140px;
 }
 
-.demolition-sidebar h3 {
+.haulage-sidebar h3 {
   font-size: 22px;
   font-weight: 800;
   color: #111;
   margin-bottom: 40px;
 }
 
-.demolition-side-card {
+.haulage-side-card {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -124,24 +125,24 @@
   transition: all 0.6s ease-out;
 }
 
-.demolition-side-card img {
+.haulage-side-card img {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.demolition-side-card.animate {
+.haulage-side-card.animate {
   animation: fadeInUp 0.8s forwards;
 }
 
-.demolition-side-card:hover {
+.haulage-side-card:hover {
   background: #d62828;
   color: #fff;
 }
 
 /* ---------- CONTENT ---------- */
-.demolition-content {
+.haulage-content {
   background: #fff;
   padding: 80px;
   border-radius: 10px;
@@ -151,11 +152,11 @@
   transition: all 0.6s ease-out;
 }
 
-.demolition-content.animate {
+.haulage-content.animate {
   animation: fadeInUp 1s forwards;
 }
 
-.demolition-content h2 {
+.haulage-content h2 {
   font-size: 38px;
   font-weight: 900;
   margin-bottom: 25px;
@@ -164,7 +165,7 @@
   padding-left: 12px;
 }
 
-.demolition-content h3 {
+.haulage-content h3 {
   font-size: 22px;
   font-weight: 800;
   margin-top: 45px;
@@ -173,7 +174,7 @@
   position: relative;
 }
 
-.demolition-content h3::after {
+.haulage-content h3::after {
   content: "";
   position: absolute;
   left: 0;
@@ -184,19 +185,19 @@
   border-radius: 2px;
 }
 
-.demolition-content p {
+.haulage-content p {
   font-size: 16px;
   color: #444;
   line-height: 1.85;
   margin-bottom: 20px;
 }
 
-.demolition-content ul {
+.haulage-content ul {
   padding-left: 22px;
   margin-bottom: 30px;
 }
 
-.demolition-content li {
+.haulage-content li {
   font-size: 15px;
   color: #111;
   margin-bottom: 10px;
@@ -204,7 +205,7 @@
   position: relative;
 }
 
-.demolition-content li::before {
+.haulage-content li::before {
   content: "•";
   position: absolute;
   left: -16px;
@@ -213,20 +214,20 @@
 }
 
 /* ---------- RESULTS ---------- */
-.demolition-results-section {
+.haulage-results-section {
   padding: 80px 20px;
   background: #fff;
   margin-top: 120px;
 }
 
-.demolition-results-section h2 {
+.haulage-results-section h2 {
   font-size: 36px;
   font-weight: 900;
   margin-bottom: 20px;
   color: #d62828;
 }
 
-.demolition-results-section p {
+.haulage-results-section p {
   font-size: 18px;
   color: #444;
   margin-bottom: 40px;
@@ -236,13 +237,13 @@
   line-height: 1.6;
 }
 
-.demolition-results-cards {
+.haulage-results-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-.demolition-results-card {
+.haulage-results-card {
   background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
@@ -254,11 +255,11 @@
   transition: all 0.35s ease;
 }
 
-.demolition-results-card.animate {
+.haulage-results-card.animate {
   animation: fadeInUp 0.8s forwards;
 }
 
-.demolition-results-card img {
+.haulage-results-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -266,26 +267,26 @@
   margin-bottom: 15px;
 }
 
-.demolition-results-card:hover {
+.haulage-results-card:hover {
   transform: translateY(-10px);
   box-shadow:0 20px 45px rgba(214, 14, 14, 0.681);
 }
 
-.demolition-results-card h4 {
+.haulage-results-card h4 {
   font-size: 18px;
   font-weight: 800;
   color: #111;
   margin-bottom: 10px;
 }
 
-.demolition-results-card p {
+.haulage-results-card p {
   font-size: 15px;
   color: #444;
   line-height: 1.5;
 }
 
 /* ---------- CTA ---------- */
-.demolition-cta-section {
+.haulage-cta-section {
   background: #111;
   color: #fff;
   padding: 80px 20px;
@@ -295,14 +296,14 @@
   box-shadow: 0 18px 45px rgba(0,0,0,0.12);
 }
 
-.demolition-cta-section h2 {
+.haulage-cta-section h2 {
   font-size: 38px;
   font-weight: 900;
   color: #d62828;
   margin-bottom: 20px;
 }
 
-.demolition-cta-section p {
+.haulage-cta-section p {
   font-size: 18px;
   color: #fff;
   margin-bottom: 35px;
@@ -312,7 +313,7 @@
   line-height: 1.6;
 }
 
-.demolition-cta-section .cta-btn {
+.haulage-cta-section .cta-btn {
   display: inline-block;
   background: #d62828;
   color: #fff;
@@ -324,7 +325,7 @@
   transition: all 0.3s ease;
 }
 
-.demolition-cta-section .cta-btn:hover {
+.haulage-cta-section .cta-btn:hover {
   background: #a12020;
   transform: translateY(-3px);
 }
@@ -337,90 +338,28 @@
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1200px){
-  .demolition-service-layout{gap:50px}
-  .demolition-content{padding:50px}
-  .demolition-sidebar{margin-top: 80px;}
+  .haulage-service-layout{gap:50px}
+  .haulage-content{padding:50px}
+  .haulage-sidebar{margin-top: 80px;}
 }
 
 @media (max-width: 992px){
-  .demolition-service-layout{grid-template-columns:1fr;gap:50px}
-  .demolition-sidebar{order:2}
-  .demolition-content{order:1;padding:40px}
+  .haulage-service-layout{grid-template-columns:1fr;gap:50px}
+  .haulage-sidebar{order:2}
+  .haulage-content{order:1;padding:40px}
 }
 
 @media (max-width: 576px){
-  .demolition-hero-title{font-size:32px}
-  .demolition-hero-subtitle{font-size:16px}
-  .demolition-content{padding:30px}
-  .demolition-cta-section h2{font-size:28px}
-  .demolition-cta-section p{font-size:16px}
-  .demolition-cta-section .cta-btn{padding:15px 30px;font-size:15px}
+  .haulage-hero-title{font-size:32px}
+  .haulage-hero-subtitle{font-size:16px}
+  .haulage-content{padding:30px}
+  .haulage-cta-section h2{font-size:28px}
+  .haulage-cta-section p{font-size:16px}
+  .haulage-cta-section .cta-btn{padding:15px 30px;font-size:15px}
 }
 
-
-/* ---------- FAQ ACCORDION ---------- */
-.demolition-faq-section {
-  padding: 80px 20px;
-  background: #fff;
-
-  h2 {
-    font-size: 36px;
-    font-weight: 900;
-    margin-bottom: 50px;
-    color: #d62828;
-  }
-
-  .demolition-faq-item {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-
-    .demolition-faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      font-size: 18px;
-      font-weight: 800;
-      padding: 18px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #111;
-      transition: color 0.3s ease;
-
-      .icon {
-        font-size: 22px;
-        font-weight: bold;
-        color: #d62828;
-      }
-    }
-
-    .demolition-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      p {
-        padding-bottom: 15px;
-        color: #444;
-        line-height: 1.6;
-      }
-    }
-
-    &.active {
-      .demolition-faq-question {
-        color: #d62828;
-      }
-
-      .demolition-faq-answer {
-        max-height: 200px;
-      }
-    }
-  }
-}
-
-// GALLERY 
-.demolition-gallery-section {
+/* ---------- HAULAGE GALLERY ---------- */
+.haulage-gallery-section {
   padding: 80px 20px;
   background: #f5f5f5;
 
@@ -430,28 +369,28 @@
     text-align: center;
   }
 
-  .demolition-carousel {
+  .haulage-carousel {
     position: relative;
     overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: center;
 
-    .demolition-carousel-track {
+    .haulage-carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
       width: 100%;
     }
 
-    .demolition-carousel-item {
-      min-width: 100%; /* one slide at a time */
+    .haulage-carousel-item {
+      min-width: 100%;
       cursor: pointer;
       display: flex;
       justify-content: center;
 
       img {
-        width: 90%;       /* slightly smaller than container */
-        max-width: 600px; /* optional max width */
+        width: 90%;
+        max-width: 600px;
         height: 250px;
         object-fit: cover;
         border-radius: 12px;
@@ -463,7 +402,7 @@
       }
     }
 
-    .demolition-carousel-btn {
+    .haulage-carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -480,8 +419,7 @@
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* Dots at bottom center */
-    .demolition-carousel-dots {
+    .haulage-carousel-dots {
       position: absolute;
       bottom: 10px;
       left: 50%;
@@ -505,8 +443,7 @@
     }
   }
 
-  /* MODAL */
-  .demolition-modal {
+  .haulage-modal {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.9);
@@ -529,25 +466,77 @@
     to { opacity: 1; }
   }
 
-  /* RESPONSIVE */
+  /* Responsive */
   @media (max-width: 992px) {
-    .demolition-carousel-item img {
-      max-width: 500px;
-      height: 220px;
-    }
+    .haulage-carousel-item img { max-width: 500px; height: 220px; }
   }
 
   @media (max-width: 768px) {
-    .demolition-carousel-item img {
-      max-width: 90%;
-      height: 180px;
-    }
+    .haulage-carousel-item img { max-width: 90%; height: 180px; }
   }
 
   @media (max-width: 480px) {
-    .demolition-carousel-item img {
-      max-width: 100%;
-      height: 160px;
+    .haulage-carousel-item img { max-width: 100%; height: 160px; }
+  }
+}
+
+/* ---------- HAULAGE FAQ ACCORDION ---------- */
+.haulage-faq-section {
+  padding: 80px 20px;
+  background: #fff;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 50px;
+    color: #d62828;
+  }
+
+  .haulage-faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+
+    .haulage-faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #111;
+      transition: color 0.3s ease;
+
+      .icon {
+        font-size: 22px;
+        font-weight: bold;
+        color: #d62828;
+      }
+    }
+
+    .haulage-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      p {
+        padding-bottom: 15px;
+        color: #444;
+        line-height: 1.6;
+      }
+    }
+
+    &.active {
+      .haulage-faq-question {
+        color: #d62828;
+      }
+
+      .haulage-faq-answer {
+        max-height: 200px;
+      }
     }
   }
 }

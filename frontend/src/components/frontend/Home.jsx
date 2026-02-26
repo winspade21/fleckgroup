@@ -8,12 +8,6 @@ import slide1 from "../../assets/images/slide1.jpg";
 import slide2 from "../../assets/images/slide2.jpeg";
 import slide3 from "../../assets/images/earthmoving.jpg";
 import abtVideo from "../../assets/images/about.mp4"; 
-import earthmovingImg from "../../assets/images/earthmoving.jpg"
-import civilImg from "../../assets/images/civil-dozer.jpg"
-import haulageImg from "../../assets/images/haulage-smalldigger.jpg"
-import transportImg from "../../assets/images/transport.jpg"
-import demolitionImg from "../../assets/images/demolition.jpeg"
-import plantHireImg from "../../assets/images/plantHire.jpg"
 
 import { FaCheckCircle, FaFacebookF, FaLinkedinIn, FaInstagram, FaAward, FaShieldAlt, FaTools, FaTrophy } from "react-icons/fa";
 

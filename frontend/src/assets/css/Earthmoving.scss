@@ -1,8 +1,10 @@
-/* =========================================
-   HERO SECTION
-========================================= */
+/* =======================================================
+   FLECK GROUP EARTHMOVING PAGE SCSS
+   Unique earthmoving-* classes, animation on scroll
+======================================================= */
 
-.inner-banner4 {
+/* ---------- HERO ---------- */
+.earthmoving-hero-banner {
   position: relative;
   width: 100%;
   height: 85vh;
@@ -14,8 +16,8 @@
   overflow: hidden;
 }
 
-.inner-banner4::before {
- content: "";
+.earthmoving-hero-banner::before {
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -27,15 +29,15 @@
   z-index: 1;
 }
 
-.w3breadcrumb-gids4 {
+.earthmoving-breadcrumbs {
   position: relative;
   z-index: 2;
   width: 100%;
   padding: 0 20px;
 }
 
-.inner-w3-title4 {
- font-size: 60px;
+.earthmoving-hero-title {
+  font-size: 60px;
   font-weight: 900;
   letter-spacing: 2px;
   margin-bottom: 15px;
@@ -44,8 +46,8 @@
   text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
 }
 
-.hero-subtitle {
- font-size: 20px;
+.earthmoving-hero-subtitle {
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
   max-width: 650px;
@@ -53,7 +55,8 @@
   text-shadow: 2px 2px 8px rgba(0,0,0,0.45);
 }
 
-.breadcrumbs-custom-path4 {
+/* Breadcrumbs */
+.earthmoving-breadcrumbs-path {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -63,249 +66,492 @@
   font-weight: 600;
 }
 
-.breadcrumbs-custom-path4 li {
-  color: #fff;
-}
-
-.breadcrumbs-custom-path4 a {
-    color: #d62828;
+.earthmoving-breadcrumbs-path li a {
+  color: #d62828;
   font-weight: 600;
   text-decoration: none;
 }
-.breadcrumbs-custom-path4 li a:hover {
+
+.earthmoving-breadcrumbs-path li a:hover {
   color: #fff;
 }
 
-.breadcrumbs-custom-path4 .active {
-  font-weight: 600;
+.earthmoving-breadcrumbs-path .fas {
+  font-size: 10px;
+  margin: 0 6px;
+  opacity: 0.7;
 }
 
-/* =========================================
-   SERVICE LAYOUT
-========================================= */
+/* Parallax effect */
+.earthmoving-hero-banner {
+  background-attachment: fixed;
+}
 
-.service-page1 {
+/* ---------- MAIN ---------- */
+.earthmoving-service-page {
   padding: 100px 0;
-  background: #f9f9f9;
+  background: #f5f5f5;
 }
 
-.service-layout1 {
+.earthmoving-service-layout {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 60px;
+  grid-template-columns: 360px 1fr;
+  gap: 70px;
+  align-items: start;
 }
 
-/* =========================================
-   SIDEBAR
-========================================= */
+/* ---------- SIDEBAR ---------- */
+.earthmoving-sidebar {
+  position: sticky;
+  top: 140px;
+}
 
-.services-sidebar1 h3 {
-  margin-bottom: 25px;
-  font-weight: 700;
+.earthmoving-sidebar h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 40px;
 }
 
 .earthmoving-side-card {
   display: flex;
+  align-items: center;
   gap: 15px;
-  background: #fff;
+  background: #f4f4f4;
   padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 18px;
+  border-radius: 8px;
+  margin-bottom: 15px;
   text-decoration: none;
   color: #111;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
 
 .earthmoving-side-card img {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.earthmoving-side-card.animate {
+  animation: fadeInUp 0.8s forwards;
 }
 
 .earthmoving-side-card:hover {
   background: #d62828;
   color: #fff;
-  transform: translateX(6px);
 }
 
-.earthmoving-side-card:hover .subtitle {
-  color: #fff;
-}
-
-/* =========================================
-   CONTENT
-========================================= */
-
-.service-content1 {
+/* ---------- CONTENT ---------- */
+.earthmoving-content {
   background: #fff;
-  padding: 60px;
-  border-radius: 12px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+  padding: 80px;
+  border-radius: 10px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
 
-.service-content1 h2 {
+.earthmoving-content.animate {
+  animation: fadeInUp 1s forwards;
+}
+
+.earthmoving-content h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  color: #111;
   border-left: 5px solid #d62828;
-  padding-left: 15px;
+  padding-left: 12px;
+}
+
+.earthmoving-content h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  color: #111;
+  position: relative;
+}
+
+.earthmoving-content h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 60px;
+  height: 4px;
+  background: #d62828;
+  border-radius: 2px;
+}
+
+.earthmoving-content p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.85;
   margin-bottom: 20px;
 }
 
-.service-content1 h3 {
-  margin-top: 35px;
-  font-weight: 700;
+.earthmoving-content ul {
+  padding-left: 22px;
+  margin-bottom: 30px;
 }
 
-.service-content1 ul {
-  padding-left: 20px;
+.earthmoving-content li {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  position: relative;
 }
 
-.service-content1 li {
-  margin-bottom: 8px;
+.earthmoving-content li::before {
+  content: "•";
+  position: absolute;
+  left: -16px;
+  color: #d62828;
+  font-weight: bold;
 }
 
-/* =========================================
-   RESULTS
-========================================= */
-
-.results-section {
-  margin-top: 100px;
-}
-
-.results-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.results-card {
+/* ---------- RESULTS ---------- */
+.earthmoving-results-section {
+  padding: 80px 20px;
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 20px;
-  transition: all 0.35s ease;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-}
-
-.results-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.results-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
-}
-
-/* =========================================
-   CTA
-========================================= */
-
-.cta-section {
-  background: #111;
-  color: #fff;
-  padding: 100px 20px;
   margin-top: 120px;
 }
 
-.cta-btn {
+.earthmoving-results-section h2 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #d62828;
+}
+
+.earthmoving-results-section p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.earthmoving-results-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.earthmoving-results-card {
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.35s ease;
+}
+
+.earthmoving-results-card.animate {
+  animation: fadeInUp 0.8s forwards;
+}
+
+.earthmoving-results-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.earthmoving-results-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(214, 14, 14, 0.681);
+}
+
+.earthmoving-results-card h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.earthmoving-results-card p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ---------- CTA ---------- */
+.earthmoving-cta-section {
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 80px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+.earthmoving-cta-section h2 {
+  font-size: 38px;
+  font-weight: 900;
+  color: #d62828;
+  margin-bottom: 20px;
+}
+
+.earthmoving-cta-section p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 35px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.earthmoving-cta-section .cta-btn {
   display: inline-block;
-  margin-top: 20px;
   background: #d62828;
   color: #fff;
-  padding: 16px 38px;
-  border-radius: 8px;
   font-weight: 700;
+  font-size: 16px;
+  padding: 18px 40px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.cta-btn:hover {
-  background: #b81f1f;
-  transform: translateY(-4px);
+.earthmoving-cta-section .cta-btn:hover {
+  background: #a12020;
+  transform: translateY(-3px);
 }
 
-/* =========================================
-   BRANDS
-========================================= */
-
-.fleck-brands-inline__row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  flex-wrap: wrap;
+/* ---------- ANIMATION ---------- */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.fleck-brands-inline img {
-  height: 60px;
-  opacity: 0.8;
-  transition: 0.3s ease;
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px){
+  .earthmoving-service-layout{gap:50px}
+  .earthmoving-content{padding:50px}
+  .earthmoving-sidebar{margin-top: 80px;}
 }
 
-.fleck-brands-inline img:hover {
-  opacity: 1;
-  transform: scale(1.05);
+@media (max-width: 992px){
+  .earthmoving-service-layout{grid-template-columns:1fr;gap:50px}
+  .earthmoving-sidebar{order:2}
+  .earthmoving-content{order:1;padding:40px}
 }
 
-/* =========================================
-   SCROLL ANIMATION
-========================================= */
+@media (max-width: 576px){
+  .earthmoving-hero-title{font-size:32px}
+  .earthmoving-hero-subtitle{font-size:16px}
+  .earthmoving-content{padding:30px}
+  .earthmoving-cta-section h2{font-size:28px}
+  .earthmoving-cta-section p{font-size:16px}
+  .earthmoving-cta-section .cta-btn{padding:15px 30px;font-size:15px}
+}
 
-@keyframes fadeUpSmooth {
-  from {
+/* ---------- FAQ ACCORDION ---------- */
+.earthmoving-faq-section {
+  padding: 80px 20px;
+  background: #fff;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 50px;
+    color: #d62828;
+  }
+
+  .earthmoving-faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+
+    .earthmoving-faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #111;
+      transition: color 0.3s ease;
+
+      .icon {
+        font-size: 22px;
+        font-weight: bold;
+        color: #d62828;
+      }
+    }
+
+    .earthmoving-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      p {
+        padding-bottom: 15px;
+        color: #444;
+        line-height: 1.6;
+      }
+    }
+
+    &.active {
+      .earthmoving-faq-question {
+        color: #d62828;
+      }
+
+      .earthmoving-faq-answer {
+        max-height: 200px;
+      }
+    }
+  }
+}
+
+
+// GALLERY 
+.earthmoving-gallery-section {
+  padding: 80px 20px;
+  background: #f5f5f5;
+
+  h2 {
+    margin-bottom: 40px;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .earthmoving-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .earthmoving-carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .earthmoving-carousel-item {
+      min-width: 100%; /* one slide at a time */
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 90%;       /* slightly smaller than container */
+        max-width: 600px; /* optional max width */
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.02);
+      }
+    }
+
+    .earthmoving-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #d62828;
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 12px 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Dots at bottom center */
+    .earthmoving-carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+
+      span {
+        width: 12px;
+        height: 12px;
+        background: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      span.active {
+        background: #d62828;
+      }
+    }
+  }
+
+  /* MODAL */
+  .earthmoving-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
     opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    animation: fadeIn 0.3s forwards;
 
-.inner-w3-title4,
-.hero-subtitle,
-.earthmoving-side-card,
-.service-content1,
-.results-card,
-.cta-section,
-.fleck-brands-inline {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.animate {
-  animation: fadeUpSmooth 0.9s ease forwards;
-}
-
-/* Stagger sidebar */
-.earthmoving-side-card:nth-child(2).animate { animation-delay: 0.2s; }
-.earthmoving-side-card:nth-child(3).animate { animation-delay: 0.35s; }
-.earthmoving-side-card:nth-child(4).animate { animation-delay: 0.5s; }
-
-/* Stagger results */
-.results-card:nth-child(1).animate { animation-delay: 0.2s; }
-.results-card:nth-child(2).animate { animation-delay: 0.4s; }
-.results-card:nth-child(3).animate { animation-delay: 0.6s; }
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 992px) {
-  .service-layout1 {
-    grid-template-columns: 1fr;
+    img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 12px;
+    }
   }
 
-  .service-content1 {
-    margin-top: 40px;
+  @keyframes fadeIn {
+    to { opacity: 1; }
   }
 
-  .inner-w3-title4 {
-    font-size: 40px;
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .earthmoving-carousel-item img {
+      max-width: 500px;
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .earthmoving-carousel-item img {
+      max-width: 90%;
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .earthmoving-carousel-item img {
+      max-width: 100%;
+      height: 160px;
+    }
   }
 }

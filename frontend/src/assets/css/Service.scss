@@ -1,34 +1,4 @@
-/* ================= HERO ================= */
-.ultra-banner {
-  position: relative;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: url("../images/slide1.jpg") no-repeat center/cover;
-  background-attachment: fixed;
 
-  .ultra-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(36,26,26,0.75);
-  }
-
-  .ultra-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-
-    h1.ultra-title { font-size: 56px; font-weight: 900; margin-bottom: 16px; text-shadow: 4px4px12px #ee1c1c; }
-    p.ultra-subtitle { font-size: 20px; margin-bottom: 16px; text-shadow: 2px2px6px rgba(0,0,0,0.5); }
-    .ultra-breadcrumbs { display: flex; justify-content: center; gap: 8px; list-style: none; padding:0; 
-      li { font-size: 18px; a { color:#ff0e21; text-decoration:none; &:hover{text-decoration:underline;} } 
-           &.active { color:#fff; span{margin:0 5px;} }
-      }
-    }
-  }
-}
 
 /* ================= SERVICES GRID ================= */
 .services-grid {
@@ -291,3 +261,269 @@
 }
 
 
+/* ================= SERVICES INTRO ================= */
+.services-intro {
+  padding: 120px 0 80px;
+  background: #fff;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .services-intro {
+    padding: 100px 20px 60px;
+
+    .container {
+      h1 {
+        font-size: 38px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .services-intro {
+    padding: 80px 15px 50px;
+
+    .container {
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+
+/* ================= WHY CHOOSE US ================= */
+.why-choose-us {
+  padding: 120px 0;
+  background: #f9f9f9;
+  text-align: center;
+
+  h2 {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #111;
+  }
+
+  p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    .feature-card {
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+      }
+
+      i {
+        font-size: 36px;
+        color: #e11d2a;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        color: #222;
+      }
+
+      p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .feature-card {
+    padding: 30px 15px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    i {
+      font-size: 30px;
+    }
+  }
+}
+
+/* ================= FAQ SECTION ================= */
+.faq-section {
+  padding: 120px 0;
+  background: #f9f9f9;
+
+  h2 {
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #111;
+  }
+
+  p {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .faq-item {
+      background: #fff;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      .faq-question {
+        width: 100%;
+        padding: 20px 30px;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: #f0f0f0;
+        }
+
+        .faq-toggle {
+          font-size: 24px;
+          font-weight: 700;
+          color: #e11d2a;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 30px;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+
+        p {
+          font-size: 16px;
+          color: #555;
+          margin: 15px 0 20px;
+          line-height: 1.6;
+        }
+      }
+
+      &.active {
+        .faq-answer {
+          max-height: 500px; // enough for most answers
+          padding: 15px 30px 20px;
+        }
+        .faq-question .faq-toggle {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .faq-section h2 {
+    font-size: 36px;
+  }
+
+  .faq-section p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-section h2 {
+    font-size: 28px;
+  }
+
+  .faq-list .faq-item .faq-question {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+
+  .faq-list .faq-item .faq-answer p {
+    font-size: 15px;
+  }
+}

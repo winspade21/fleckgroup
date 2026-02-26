@@ -172,14 +172,16 @@ const Header = () => {
                 <NavDropdown.Item as={NavLink} to="/services/haulage" className={dropdownItemClass}>
                   Haulage
                 </NavDropdown.Item>
+                
+                <NavDropdown.Item as={NavLink} to="/services/plant-hire" className={dropdownItemClass}>
+                   Plant Hire
+                </NavDropdown.Item>
 
                 <NavDropdown.Item as={NavLink} to="/services/transport" className={dropdownItemClass}>
                   Transport
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={NavLink} to="/services/plant-hire" className={dropdownItemClass}>
-                  Plant Hire
-                </NavDropdown.Item>
+                
               </NavDropdown>
 
               {/* Projects */}
