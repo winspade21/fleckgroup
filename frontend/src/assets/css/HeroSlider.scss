@@ -1,19 +1,14 @@
-/* =====================================
-   HERO SLIDER
-===================================== */
-
 .slider-hero {
   position: relative;
   width: 100%;
   height: clamp(600px, 100vh, 1100px);
-  margin-top: 90px; // match your navbar height
-  overflow: hidden;
+  margin-top: 90px; /* match navbar height */
+  overflow: visible; /* allow arrows to show outside slides */
   background: #000;
 
   /* =============================
      SLIDES
   ============================= */
-
   .list-slider {
     height: 100%;
     position: relative;
@@ -31,7 +26,6 @@
         object-fit: cover;
       }
 
-      /* Dark overlay for readability */
       &::after {
         content: "";
         position: absolute;
@@ -45,24 +39,14 @@
         );
       }
 
-      /* =============================
-         CONTENT
-      ============================= */
-
       .content {
         position: absolute;
         bottom: 20%;
         left: 8%;
         z-index: 2;
         width: min(650px, 90%);
-        color: #ffffff;
+        color: #fff;
 
-        p,
-        h2 {
-          color: #ffffff;
-        }
-
-        /* CATEGORY BADGE */
         p:first-child {
           display: inline-block;
           text-transform: uppercase;
@@ -101,15 +85,10 @@
   /* =============================
      ARROWS
   ============================= */
-
   .arrows-btn {
     position: absolute;
-    top: 50%;
-    right: 40px;
-    transform: translateY(-50%);
-    z-index: 10;
+    z-index: 50; /* above slides and thumbnails */
     display: flex;
-    flex-direction: column;
     gap: 12px;
 
     button {
@@ -118,15 +97,43 @@
       border-radius: 8px;
       border: none;
       background: rgba(255, 255, 255, 0.25);
-      color: #ffffff;
+      color: #fff;
       font-size: clamp(18px, 2vw, 26px);
       cursor: pointer;
       backdrop-filter: blur(6px);
       transition: 0.3s ease;
+      touch-action: manipulation;
 
       &:hover {
-        background: #ffffff;
-        color: #000000;
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+
+  /* Desktop arrows */
+  @media (min-width: 769px) {
+    .arrows-btn {
+      top: 50%;
+      right: 40px;
+      flex-direction: column;
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Mobile arrows */
+  @media (max-width: 768px) {
+    .arrows-btn {
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: row;
+      justify-content: center;
+      gap: 15px;
+
+      button {
+        width: 48px;
+        height: 48px;
       }
     }
   }
@@ -134,7 +141,6 @@
   /* =============================
      THUMBNAILS
   ============================= */
-
   .thumbnail {
     position: absolute;
     bottom: 30px;
@@ -174,7 +180,7 @@
         left: 10px;
         right: 10px;
         font-size: clamp(10px, 1vw, 14px);
-        color: #ffffff;
+        color: #fff;
         font-weight: 600;
       }
 
@@ -186,24 +192,8 @@
   }
 
   /* =============================
-     TABLET
+     MOBILE & SMALL MOBILE HEIGHT
   ============================= */
-
-  @media (max-width: 1024px) {
-    .list-slider .list-item .content {
-      bottom: 18%;
-      left: 6%;
-    }
-
-    .arrows-btn {
-      right: 20px;
-    }
-  }
-
-  /* =============================
-     MOBILE
-  ============================= */
-
   @media (max-width: 768px) {
     height: 75vh;
 
@@ -213,24 +203,12 @@
       width: 92%;
     }
 
-    .arrows-btn {
-      flex-direction: row;
-      top: auto;
-      bottom: 120px;
-      right: 50%;
-      transform: translateX(50%);
-    }
-
     .thumbnail {
       bottom: 15px;
       justify-content: flex-start;
       padding-left: 15px;
     }
   }
-
-  /* =============================
-     SMALL MOBILE
-  ============================= */
 
   @media (max-width: 480px) {
     height: 70vh;

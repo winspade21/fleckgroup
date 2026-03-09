@@ -1,162 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../assets/css/Projects.scss";
+import { fleetCategories } from "../../assets/images/fleetData.js";
 
-import civilImg from "../../assets/images/civil-dozer.jpg";
-import earthmovingImg from "../../assets/images/earthmoving.jpg";
-import demolitionImg from "../../assets/images/demolition.jpeg";
-import haulageImg from "../../assets/images/haulage-smalldigger.jpg";
-import plantHireImg from "../../assets/images/plantHire.jpg";
-import transportImg from "../../assets/images/transport.jpg";
-
-const projectsData = [
-  {
-    id: 1,
-    title: "City Road Upgrade",
-    category: "Civil",
-    description:
-      "Major arterial road reconstruction improving traffic flow and safety across Western Sydney.",
-    image: civilImg,
-  },
-  {
-    id: 2,
-    title: "Bulk Excavation Works",
-    category: "Earthmoving",
-    description:
-      "Large-scale excavation and site preparation for commercial development.",
-    image: earthmovingImg,
-  },
-  {
-    id: 3,
-    title: "Industrial Site Demolition",
-    category: "Demolition",
-    description:
-      "Complete demolition and site clearance of aging industrial facility.",
-    image: demolitionImg,
-  },
-  {
-    id: 4,
-    title: "Material Haulage Program",
-    category: "Haulage",
-    description:
-      "Efficient transport of aggregates and spoil across multiple project sites.",
-    image: haulageImg,
-  },
-  {
-    id: 5,
-    title: "Wet & Dry Plant Hire",
-    category: "Plant Hire",
-    description:
-      "Supplying modern machinery with skilled operators for civil contractors.",
-    image: plantHireImg,
-  },
-  {
-    id: 6,
-    title: "Heavy Equipment Transport",
-    category: "Transport",
-    description:
-      "Specialised transport logistics for oversized plant and machinery.",
-    image: transportImg,
-  },
-];
-
-const categories = [
-  "All",
-  "Civil",
-  "Earthmoving",
-  "Demolition",
-  "Haulage",
-  "Plant Hire",
-  "Transport",
+const faqsData = [
+  { question: "Do you provide machinery with operators?", answer: "Yes, all our fleet comes with skilled, fully licensed operators." },
+  { question: "Can I hire equipment for short-term projects?", answer: "Absolutely. We offer flexible hire options depending on your project requirements." },
+  { question: "Do you service all of NSW?", answer: "Yes, our fleet is available across New South Wales for all project types." },
+  { question: "Are the machines insured?", answer: "Yes, all fleet equipment is fully insured and maintained for safety compliance." },
 ];
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeProject, setActiveProject] = useState(null);
-
-  // FAQ Accordion state
+  const [activeCategory, setActiveCategory] = useState(fleetCategories[0]);
+  const [activeEquipment, setActiveEquipment] = useState(null);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-  const faqsData = [
-    {
-      question: "What types of projects do you handle?",
-      answer:
-        "We handle civil, earthmoving, demolition, haulage, plant hire, and transport projects across NSW, from small commercial sites to large-scale infrastructure.",
-    },
-    {
-      question: "Do you provide machinery with operators?",
-      answer:
-        "Yes, all our plant hire and earthmoving machinery comes with skilled, fully licensed operators.",
-    },
-    {
-      question: "How do I request a project quote?",
-      answer:
-        "You can contact us directly via the 'Get in Touch' button on this page or fill out our contact form with project details.",
-    },
-    {
-      question: "Are your projects insured?",
-      answer:
-        "Absolutely. All projects are fully licensed and insured for safety and compliance.",
-    },
-  ];
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projectsData
-      : projectsData.filter((project) => project.category === activeCategory);
+  const tabsRef = useRef(null);
 
   // Prevent background scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = activeProject ? "hidden" : "auto";
-  }, [activeProject]);
+    document.body.style.overflow = activeEquipment ? "hidden" : "auto";
+  }, [activeEquipment]);
+
+  const scrollTabs = (direction) => {
+    if (tabsRef.current) {
+      tabsRef.current.scrollBy({
+        left: direction === "left" ? -200 : 200,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <main style={{ marginTop: "160px" }}>
-      {/* HERO + BREADCRUMB */}
+      {/* HERO */}
       <section className="projects-hero">
         <div className="overlay"></div>
         <div className="container hero-content text-center">
-          <h1>Our Projects</h1>
+          <h1>Our Fleet</h1>
           <p>
-            Delivering excellence across Civil, Earthmoving, Demolition, Haulage, Plant Hire & Transport services across NSW.
+            Showcasing our heavy machinery and equipment for civil, earthmoving, demolition, haulage, and transport projects across NSW.
           </p>
           <div className="breadcrumb-custom">
             <span>Home</span>
             <span className="separator">/</span>
-            <span className="active">Projects</span>
+            <span className="active">Fleet</span>
           </div>
         </div>
       </section>
 
-      {/* PROJECTS TABS + GRID */}
+      {/* TABS */}
       <section className="projects-section py-5">
         <div className="container">
-          {/* Tabs */}
-          <div className="projects-tabs text-center mb-5">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`tab-btn ${activeCategory === cat ? "active" : ""}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="tabs-wrapper">
+            <button className="scroll-btn" onClick={() => scrollTabs("left")}>◀</button>
+            <div className="projects-tabs" ref={tabsRef}>
+              {fleetCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`tab-btn ${activeCategory.id === cat.id ? "active" : ""}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {cat.title}
+                </button>
+              ))}
+            </div>
+            <button className="scroll-btn" onClick={() => scrollTabs("right")}>▶</button>
           </div>
 
-          {/* Projects Grid */}
-          <div className="projects-grid">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="project-card">
-                <img src={project.image} alt={project.title} className="project-img" />
+
+
+          {/* GRID */}
+          <div className="projects-grid mt-4">
+            {activeCategory.equipment.map((eq, idx) => (
+              <div
+                key={idx}
+                className="project-card"
+                onClick={() => setActiveEquipment(eq)}
+              >
+                {eq.image && <img src={eq.image} alt={eq.name} className="project-img" />}
                 <div className="card-content">
-                  <h3>{project.title}</h3>
-                  <span className="project-category">{project.category}</span>
-                  <p>{project.description}</p>
-                  <button
-                    className="btn-brand mt-auto"
-                    onClick={() => setActiveProject(project)}
-                  >
-                    View Details
-                  </button>
+                  <h3>{eq.name}</h3>
+                  <p>{eq.description}</p>
                 </div>
               </div>
             ))}
@@ -165,15 +89,14 @@ const Projects = () => {
       </section>
 
       {/* MODAL */}
-      {activeProject && (
+      {activeEquipment && (
         <div className="project-modal">
-          <div className="modal-overlay" onClick={() => setActiveProject(null)}></div>
+          <div className="modal-overlay" onClick={() => setActiveEquipment(null)}></div>
           <div className="modal-content">
-            <button className="close-btn" onClick={() => setActiveProject(null)}>×</button>
-            <h2>{activeProject.title}</h2>
-            <span className="project-category">{activeProject.category}</span>
-            <img src={activeProject.image} alt={activeProject.title} />
-            <p>{activeProject.description}</p>
+            <button className="close-btn" onClick={() => setActiveEquipment(null)}>×</button>
+            <h2>{activeEquipment.name}</h2>
+            {activeEquipment.image && <img src={activeEquipment.image} alt={activeEquipment.name} />}
+            <p>{activeEquipment.description}</p>
           </div>
         </div>
       )}
@@ -183,12 +106,8 @@ const Projects = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <h2>Comprehensive Civil & Earthworks Capability</h2>
-              <p>
-                With over 35 years of experience, Fleck Group delivers
-                large-scale civil, demolition, and earthmoving solutions
-                backed by modern machinery and skilled operators.
-              </p>
+              <h2>Comprehensive Fleet Capability</h2>
+              <p>With over 35 years of experience, Fleck Group offers a wide range of modern machinery for civil, demolition, and earthmoving projects.</p>
               <ul>
                 <li>✔ Bulk excavation & detailed earthworks</li>
                 <li>✔ Road construction & infrastructure</li>
@@ -206,41 +125,24 @@ const Projects = () => {
       {/* STATS */}
       <section className="projects-stats">
         <div className="container text-center">
-          <h2>Our Achievements</h2>
-          <p>
-            Proven track record in civil, demolition, earthmoving, and transport projects across NSW.
-          </p>
+          <h2>Our Fleet Achievements</h2>
+          <p>Reliable fleet and machinery for civil, demolition, earthmoving, and transport projects across NSW.</p>
           <div className="stats-grid">
-            <div className="stat-card">
-              <h3>1200+</h3>
-              <p>Projects Completed</p>
-            </div>
-            <div className="stat-card">
-              <h3>35+</h3>
-              <p>Years of Experience</p>
-            </div>
-            <div className="stat-card">
-              <h3>100+</h3>
-              <p>Machines & Assets</p>
-            </div>
-            <div className="stat-card">
-              <h3>100%</h3>
-              <p>Safety Commitment</p>
-            </div>
+            <div className="stat-card"><h3>100+</h3><p>Machines Available</p></div>
+            <div className="stat-card"><h3>35+</h3><p>Years of Experience</p></div>
+            <div className="stat-card"><h3>500+</h3><p>Projects Supported</p></div>
+            <div className="stat-card"><h3>100%</h3><p>Safety Compliance</p></div>
           </div>
         </div>
       </section>
 
-      {/* FAQ ACCORDION */}
+      {/* FAQ */}
       <section className="projects-faq py-5">
         <div className="container">
           <h2 className="mb-4">Frequently Asked Questions</h2>
           <div className="accordion">
             {faqsData.map((faq, index) => (
-              <div
-                className={`accordion-item ${activeFaqIndex === index ? "active" : ""}`}
-                key={index}
-              >
+              <div className={`accordion-item ${activeFaqIndex === index ? "active" : ""}`} key={index}>
                 <button
                   className="accordion-header"
                   onClick={() => setActiveFaqIndex(activeFaqIndex === index ? null : index)}
@@ -248,9 +150,7 @@ const Projects = () => {
                   {faq.question}
                   <span className="accordion-icon">{activeFaqIndex === index ? "−" : "+"}</span>
                 </button>
-                <div className="accordion-body">
-                  <p>{faq.answer}</p>
-                </div>
+                <div className="accordion-body"><p>{faq.answer}</p></div>
               </div>
             ))}
           </div>
@@ -260,13 +160,9 @@ const Projects = () => {
       {/* CTA */}
       <section className="projects-cta">
         <div className="container text-center">
-          <h2>Ready to Start Your Project?</h2>
-          <p>
-            Partner with Fleck Group for reliable civil and earthmoving solutions across NSW.
-          </p>
-          <button className="btn-brand" onClick={() => window.location.href="/contact"}>
-            Get in Touch
-          </button>
+          <h2>Need Heavy Machinery?</h2>
+          <p>Hire from Fleck Group for reliable fleet and equipment solutions across NSW.</p>
+          <button className="btn-brand" onClick={() => window.location.href="/contact"}>Get in Touch</button>
         </div>
       </section>
     </main>

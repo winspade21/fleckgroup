@@ -74,21 +74,36 @@ const ServiceSection = () => {
     setServices((prev) => [prev[prev.length - 1], ...prev.slice(0, -1)]);
   };
 
+  // ✅ FIXED: works on desktop + mobile
   const handleCardClick = (index) => {
-    if (window.innerWidth <= 992) {
-      const rotated = [...services];
-      while (rotated[1].id !== services[index].id) {
-        rotated.push(rotated.shift());
-      }
-      setServices(rotated);
+    if (index === 1) return; 
 
-      if (sliderRef.current) {
-        sliderRef.current.children[1].scrollIntoView({
+    setServices((prev) => {
+      const newArr = [...prev];
+      const steps = index - 1;
+
+      if (steps > 0) {
+        for (let i = 0; i < steps; i++) {
+          newArr.push(newArr.shift());
+        }
+      } else {
+        for (let i = 0; i < Math.abs(steps); i++) {
+          newArr.unshift(newArr.pop());
+        }
+      }
+
+      return newArr;
+    });
+
+    // keep smooth scroll for mobile
+    if (window.innerWidth <= 992 && sliderRef.current) {
+      setTimeout(() => {
+        sliderRef.current.children[1]?.scrollIntoView({
           behavior: "smooth",
           inline: "center",
           block: "nearest",
         });
-      }
+      }, 300);
     }
   };
 

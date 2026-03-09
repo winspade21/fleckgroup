@@ -380,78 +380,115 @@ $text-muted: #555;
   }
 }
 
-/* =====================================================
-   FAQ / ACCORDION
-===================================================== */
 .w3l-faq-block {
-  background: $white;
+  background: linear-gradient(to bottom, #f8f9fb, #ffffff);
+  padding: 90px 0;
 
   .title-subw3hny {
     font-size: 14px;
     font-weight: 600;
-    color: $primary-red;
+    color: #d32f2f;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
   }
 
   .title-w3l {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     font-weight: 700;
-    color: $dark-soft;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
+}
 
-  .w3hny-passion-item img{
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    &:hover{
-      transform: translateY(-3px);
-    }
+/* 2 Column Grid */
+.accordion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
   }
+}
 
-  .accordion {
-    border: none;
+/* Modern Card */
+.accordion-item {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 
-    .accordion-item {
-      border: 1px solid $border-color;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      overflow: hidden;
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  }
+}
 
-    .accordion-button {
-      font-size: 16px;
-      font-weight: 600;
-      background: #f9f9f9;
-      color: $dark;
-      padding: 18px 20px;
-      box-shadow: none;
+/* Accent Top Border */
+.accordion-item::before {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #d32f2f, #ff5252);
+}
 
-      &::after {
-        background-size: 14px;
-      }
+/* Question Button */
+.accordion-button {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 22px 24px;
+  background: #ffffff;
+  box-shadow: none;
+  transition: 0.3s ease;
+}
 
-      &:focus {
-        box-shadow: none;
-      }
+.accordion-button:focus {
+  box-shadow: none;
+}
 
-      &:not(.collapsed) {
-        background: $white;
-        color: $primary-red;
-      }
-    }
+.accordion-button:not(.collapsed) {
+  color: #d32f2f;
+  background: #fff;
+}
 
-    .accordion-collapse {
-      border-top: 1px solid $border-color;
-    }
+/* Custom Icon */
+.accordion-button::after {
+  filter: brightness(0);
+  transition: transform 0.3s ease;
+}
 
-    .accordion-body {
-      font-size: 15px;
-      line-height: 1.7;
-      color: $text-muted;
-      padding: 20px;
-      background: $white;
-    }
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+  filter: none;
+}
+
+/* Answer */
+.accordion-body {
+  padding: 0 24px 24px 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Image Styling */
+.w3hny-passion-item img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+
+  &:hover {
+    transform: scale(1.03);
   }
 }
 
@@ -861,6 +898,26 @@ $text-muted: #555;
       a img {
         max-height: 60px;
       }
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .who-we-are {
+    padding: 60px 20px;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .content-wrapper {
+      padding: 30px;
     }
   }
 }

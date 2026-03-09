@@ -16,40 +16,26 @@ const testimonials = [
   {
     name: "John Stein",
     position: "Director, Hotondo Homes",
-    content: `We have been using Fleck Earthmoving for in excess of 20 years from small beginnings to the Company they are today. We have always found them to be honest (a company you can trust), reliable, they do good quality work, well-maintained equipment, and good quality operators. `,
+    content: `We have been using Fleck Earthmoving for in excess of 20 years from small beginnings to the Company they are today. We have always found them to be honest (a company you can trust), reliable, they do good quality work, well-maintained equipment, and good quality operators.`,
   },
   {
     name: "Daniel Prentice",
     position: "Director, Quantum Construction Pty Ltd.",
-    content: `Fleck Earthmoving get on with the job without the nannying that subcontractors seem to expect today. Their team is professional both on and off site, and their service and work ethic is excellent. I have no hesitation in recommending Fleck Earthmoving to a potential client. They are one of the very few contractors who can be trusted when used on hourly rates to look after your interests.`,
+    content: `Fleck Earthmoving get on with the job without the nannying that subcontractors seem to expect today. Their team is professional both on and off site, and their service and work ethic is excellent. I have no hesitation in recommending Fleck Earthmoving to a potential client.`,
   },
   {
     name: "Grant Kearney",
     position: "Project Manager, Landscape Solutions",
-    content: `Fleck Earthmoving have all the key values you look for: straightforward, great operators, the correct equipment and really easy to work with. I would not hesitate recommending these guys to anyone who is needing plant and equipment. I would not hesitate recommending these guys to anyone.`,
+    content: `Fleck Earthmoving have all the key values you look for: straightforward, great operators, the correct equipment and really easy to work with.`,
   },
 ];
 
 const Testimonial = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', position: '', content: '' });
   const [allTestimonials, setAllTestimonials] = useState(testimonials);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.content) return;
-    setAllTestimonials([...allTestimonials, { ...formData }]);
-    setFormData({ name: '', position: '', content: '' });
-    setIsModalOpen(false);
-  };
 
   return (
     <section className="section-5 py-5">
@@ -66,9 +52,9 @@ const Testimonial = () => {
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
-          loop
+          loop={true}
           pagination={{ clickable: true }}
-          navigation
+          navigation={true}
           autoplay={{ delay: 4000 }}
           breakpoints={{
             0: { slidesPerView: 1 },
@@ -89,45 +75,6 @@ const Testimonial = () => {
           ))}
         </Swiper>
 
-        <div className="text-center mt-5">
-          <button className="open-modal-btn" onClick={() => setIsModalOpen(true)}>
-            Leave a Testimonial
-          </button>
-        </div>
-
-        {isModalOpen && (
-          <div className="testimonial-modal-backdrop">
-            <div className="testimonial-modal">
-              <button className="close-modal" onClick={() => setIsModalOpen(false)}>×</button>
-              <h4 className="text-center mb-3">Leave a Testimonial</h4>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="position"
-                  placeholder="Company / Position (optional)"
-                  value={formData.position}
-                  onChange={handleChange}
-                />
-                <textarea
-                  name="content"
-                  placeholder="Your Testimonial"
-                  value={formData.content}
-                  onChange={handleChange}
-                  required
-                />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

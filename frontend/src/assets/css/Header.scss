@@ -197,28 +197,77 @@ SCROLL SHRINK
   max-height: 60%;   
 }
 
-/* ==============================
-MOBILE
-============================== */
+// //* ==============================
+// MOBILE FIXED HEADER (NO WHITE GAP)
+// ============================== *//
 @media (max-width: 991px) {
 
+  /* ------------------------------
+     Top Bar
+  ------------------------------ */
   .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--topbar-height);
     padding: 6px 16px;
+    z-index: 10000;
   }
 
+  /* Hide left logo on mobile */
   .top-left {
     display: none;
   }
 
+  /* Center right-side brand logos */
+  .top-right {
+    justify-content: center;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .top-right img {
+    max-height: 55%;
+  }
+
+  /* ------------------------------
+     Navbar
+  ------------------------------ */
   .navbar-custom {
-    top: 0;
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
+    height: var(--navbar-height); /* fixed height for mobile */
     padding: 10px 16px;
+    z-index: 9999;
   }
 
-  .navbar-brand {
-    display: block;
+  /* ------------------------------
+     Body padding to prevent content hiding
+     and remove white gap below header
+  ------------------------------ */
+  body {
+    padding-top: calc(var(--topbar-height) + var(--navbar-height));
   }
 
+  /* Maintain proper scroll shrink */
+  .site-header.scrolled .top-bar {
+    height: var(--topbar-height-scrolled);
+  }
+
+  .site-header.scrolled .navbar-custom {
+    top: var(--topbar-height-scrolled);
+  }
+
+  .site-header.scrolled body {
+    padding-top: calc(var(--topbar-height-scrolled) + var(--navbar-height));
+  }
+
+  /* ------------------------------
+     Mobile dropdown menu
+  ------------------------------ */
   .navbar-collapse {
     background: rgba(0, 0, 0, 0.95);
     margin-top: 10px;
@@ -296,11 +345,10 @@ ACTIVE NAV LINK
 ============================== */
 .nav-link.active,
 .dropdown-item.active {
-  color: linear-gradient(135deg, #ff6a00, #ee0979) !important;
+  color: #ff6a00 !important;
   position: relative;
 }
 
-/* underline animation */
 .nav-link.active::after {
   content: "";
   position: absolute;
@@ -308,9 +356,10 @@ ACTIVE NAV LINK
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(135deg, #ff6a00, #ee0979) !important;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
 }
 
+ 
 /* ==============================
 ACTIVE DROPDOWN TITLE
 ============================== */

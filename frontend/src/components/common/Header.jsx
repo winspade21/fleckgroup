@@ -69,11 +69,6 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Contact Center */}
-        {/* <div className="top-center">
-          <span><FaPhone /> 0419 111 133</span>
-          <span><FaEnvelope /> admin@fleckgroup.com.au</span>
-        </div> */}
 
         {/* Brand Logos Right */}
         <div className="top-right">
@@ -189,13 +184,13 @@ const Header = () => {
                 title="Projects & Info"
                 id="projects-info-dropdown"
                 className={
-                  ["/projects", "/testimonial", "/faqs"].includes(location.pathname)
+                  ["/our-fleet", "/testimonial", "/faqs"].includes(location.pathname)
                     ? "active-dropdown"
                     : ""
                 }
               >
-                <NavDropdown.Item as={NavLink} to="/projects" className={dropdownItemClass}>
-                  Projects
+                <NavDropdown.Item as={NavLink} to="/our-fleet" className={dropdownItemClass}>
+                  Our Fleet
                 </NavDropdown.Item>
 
                 <NavDropdown.Item as={NavLink} to="/testimonial" className={dropdownItemClass}>

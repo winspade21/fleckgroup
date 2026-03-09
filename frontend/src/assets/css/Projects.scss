@@ -2,7 +2,7 @@
    BRAND COLORS
 =================================*/
 
-$red: #b3121d;
+$red: #c8102e;
 $black: #111111;
 $light-gray: #f4f4f4;
 $mid-gray: #777;
@@ -234,7 +234,7 @@ $white: #ffffff;
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    border-left: 4px solid #b3121d;
+    border-left: 4px solid #c8102e;
     padding-left: 15px;
   }
 
@@ -391,9 +391,9 @@ $white: #ffffff;
   padding: 80px 0;
 
   h2 {
-    color: #b3121d;
+    color: #c8102e; 
     margin-bottom: 2rem;
-    border-left: 4px solid #b3121d;
+    border-left: 4px solid #c8102e;
     padding-left: 15px;
   }
 
@@ -409,13 +409,13 @@ $white: #ffffff;
       transition: border-color 0.3s;
 
       &.active {
-        border-color: #b3121d;
+        border-color: #c8102e;
       }
 
       .accordion-header {
         width: 100%;
         background: #f4f4f4;
-        color: #111;
+        color: #111; 
         text-align: left;
         padding: 1rem 1.5rem;
         font-weight: 600;
@@ -433,7 +433,7 @@ $white: #ffffff;
 
         .accordion-icon {
           font-size: 1.5rem;
-          color: #b3121d;
+          color: #c8102e; 
         }
       }
 
@@ -446,21 +446,63 @@ $white: #ffffff;
 
         p {
           margin: 1rem 0;
-          color: #777;
+          color: #777; 
         }
       }
 
       &.active .accordion-body {
-        max-height: 200px;
+        max-height: 200px; 
         padding: 1rem 1.5rem;
       }
     }
   }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .accordion {
+      max-width: 100%;
+    }
+  }
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .projects-faq .accordion {
-    max-width: 100%;
+.tabs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  .scroll-btn {
+    background: #c8102e;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+
+    &:hover {
+      background: #111;
+    }
+  }
+
+  .projects-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    flex-grow: 1;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE 10+
+    
+    &::-webkit-scrollbar { // Chrome/Safari
+      display: none;
+    }
+
+    .tab-btn {
+      flex-shrink: 0;
+      margin: 0 2px;
+      white-space: nowrap;
+    }
   }
 }

@@ -89,49 +89,43 @@ const HeroSlider = () => {
   }, [activeIndex]);
 
   return (
-    <div className="slider-hero">
-      <div className="list-slider">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`list-item ${
-              index === activeIndex ? "active" : ""
-            }`}
-          >
-            <img src={slide.image} alt={slide.title} />
-            <div className="content">
-              <p>{slide.category}</p>
-              <h2>{slide.title}</h2>
-              <p>{slide.description}</p>
-            </div>
-          </div>
-        ))}
+<div className="slider-hero">
+  <div className="list-slider">
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className={`list-item ${index === activeIndex ? "active" : ""}`}
+      >
+        <img src={slide.image} alt={slide.title} />
+        <div className="content">
+          <p>{slide.category}</p>
+          <h2>{slide.title}</h2>
+          <p>{slide.description}</p>
+        </div>
       </div>
+    ))}
+  </div>
 
-      {/* Arrows */}
-      <div className="arrows-btn">
-        <button onClick={prevSlide}>&lt;</button>
-        <button onClick={nextSlide}>&gt;</button>
-      </div>
+  {/* ARROWS outside of list-slider */}
+  <div className="arrows-btn">
+    <button onClick={prevSlide}>&lt;</button>
+    <button onClick={nextSlide}>&gt;</button>
+  </div>
 
-      {/* Thumbnails */}
-      <div className="thumbnail">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`item-thumbnail ${
-              index === activeIndex ? "active" : ""
-            }`}
-            onClick={() => setActiveIndex(index)}
-          >
-            <img src={slide.image} alt={slide.title} />
-            <div className="content-thumbnail">
-              {slide.title}
-            </div>
-          </div>
-        ))}
+  {/* THUMBNAILS */}
+  <div className="thumbnail">
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className={`item-thumbnail ${index === activeIndex ? "active" : ""}`}
+        onClick={() => setActiveIndex(index)}
+      >
+        <img src={slide.image} alt={slide.title} />
+        <div className="content-thumbnail">{slide.title}</div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
   );
 };
 

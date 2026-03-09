@@ -7,30 +7,20 @@ import { assets } from "../../assets/images/assets.js";
 
 const ServiceSlider = () => {
   const services = [
-     {
-      id: 1,
-      title: "Earthmoving",
-      img: assets.earthmoving,
-      desc: "Professional earthmoving services including excavation, grading, trenching, and site preparation with modern equipment.",
-      route: "/services/earthmoving",
-    },
-
     {
-      id: 2,
+      id: 1,
       title: "Civil Works",
       img: assets.civil,
       desc: "We provide high-quality civil construction services including roadworks, stormwater drainage, concrete works, and infrastructure development.",
       route: "/services/civil",
     },
-
     {
-      id: 3,
-      title: "Demolition",
-      img: assets.demolition,
-      desc: "Controlled and environmentally responsible demolition services with safety compliance.",
-      route: "/services/demolition",
+      id: 2,
+      title: "Earthmoving",
+      img: assets.earthmoving,
+      desc: "Professional earthmoving services including excavation, grading, trenching, and site preparation with modern equipment.",
+      route: "/services/earthmoving",
     },
-       
     {
       id: 3,
       title: "Heavy Haulage",
@@ -38,7 +28,13 @@ const ServiceSlider = () => {
       desc: "Safe, reliable, and efficient heavy haulage solutions for oversized and high-value cargo.",
       route: "/services/haulage",
     },
-
+    {
+      id: 4,
+      title: "Demolition",
+      img: assets.demolition,
+      desc: "Controlled and environmentally responsible demolition services with safety compliance.",
+      route: "/services/demolition",
+    },
     {
       id: 5,
       title: "Plant Hire",
@@ -46,7 +42,6 @@ const ServiceSlider = () => {
       desc: "Modern plant hire services with expert operators for construction and site preparation.",
       route: "/services/plant-hire",
     },
-    
     {
       id: 6,
       title: "Transport",

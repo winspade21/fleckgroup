@@ -357,8 +357,13 @@
   .transport-hero-subtitle{font-size:16px}
   .transport-content{padding:30px}
   .transport-cta-section h2{font-size:28px}
-  .transport-cta-section p{font-size:16px}
-  .transport-cta-section .cta-btn{padding:15px 30px;font-size:15px}
+  .transport-cta-section p{
+    font-size:16px
+  }
+  .transport-cta-section .cta-btn{
+    padding:15px 30px;
+    font-size:15px
+  }
 }
 
 /* ---------- BRAND LOGOS ---------- */
@@ -461,9 +466,25 @@
     margin-bottom: 15px;
 
     .transport-faq-question { 
-      width: 100%; background: none; border: none; text-align: left; font-size: 18px; font-weight: 800; padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #111; transition: color 0.3s ease;
+      width: 100%; 
+      background: none; 
+      border: none; 
+      text-align: left; 
+      font-size: 18px; 
+      font-weight: 800; 
+      padding: 18px 0; 
+      cursor: pointer; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      color: #111; 
+      transition: color 0.3s ease;
 
-      .icon { font-size: 22px; font-weight: bold; color: #d62828; }
+      .icon { 
+        font-size: 22px; 
+        font-weight: bold; 
+        color: #d62828; 
+      }
     }
 
     .transport-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; p { padding-bottom: 15px; color: #444; line-height: 1.6; } }

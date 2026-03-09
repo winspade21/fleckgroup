@@ -195,11 +195,27 @@ html {
 
 /* Responsive */
 @media (max-width: 992px) {
-  .service-heroContent { width: 50%; top: 32%; }
-  .service-heroType { font-size: 2.5em; }
-  .service-heroTitle { font-size: 1.6em; }
-  .service-heroDesc { font-size: 14px; }
-  .heroThumbnail-item { width: 80px; height: 120px; }
+  .service-heroContent { 
+    width: 50%; 
+    top: 32%; 
+  }
+  
+  .service-heroType { 
+    font-size: 2.5em; 
+  }
+
+  .service-heroTitle { 
+    font-size: 1.6em; 
+  }
+
+  .service-heroDesc { 
+    font-size: 14px; 
+  }
+
+  .heroThumbnail-item { 
+    width: 80px; 
+    height: 120px; 
+  }
 }
 
 @media (max-width: 768px) {
@@ -208,19 +224,52 @@ html {
   .service-heroTitle { font-size: 1.5em; }
   .service-heroDesc { font-size: 13px; }
   .heroThumbnail-item { width: 70px; height: 110px; }
+
   .hero-nextPrevArrows {
-    top: auto; bottom: 12%; left: 50%; transform: translateX(-50%);
-    flex-direction: row; gap: 10px;
+    top: auto; 
+    bottom: 5%; /* fixed position */
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 12px;
+    width: auto;
   }
-  .hero-nextPrevArrows button { width: 40px; height: 40px; font-size: 16px; }
+
+  .hero-nextPrevArrows button { 
+    width: 40px; 
+    height: 40px; 
+    font-size: 16px;
+    padding: 0;
+  }
 }
 
 @media (max-width: 576px) {
-  .service-heroContent { width: 70%; top: 28%; }
-  .service-heroType { font-size: 1.6em; }
-  .service-heroTitle { font-size: 1.4em; }
-  .service-heroDesc { font-size: 12px; }
-  .heroThumbnail-item { width: 60px; height: 90px; }
-  .hero-nextPrevArrows { bottom: 15%; gap: 8px; }
-  .hero-nextPrevArrows button { width: 35px; height: 35px; font-size: 14px; }
+  .service-heroContent { 
+    width: 70%; 
+    top: 28%; 
+  }
+  .service-heroType { 
+    font-size: 1.6em; 
+  }
+  .service-heroTitle { 
+    font-size: 1.4em; 
+  }
+  .service-heroDesc { 
+    font-size: 12px; 
+  }
+  .heroThumbnail-item { 
+    width: 60px; 
+    height: 90px; 
+  }
+
+  .hero-nextPrevArrows { 
+    bottom: 5%; 
+    gap: 10px; 
+  }
+  .hero-nextPrevArrows button { 
+    width: 35px; 
+    height: 35px; 
+    font-size: 14px; 
+  }
 }
